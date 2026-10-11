@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="CHURROVA Home 2 — The Dessert Playground. Explore filled churros, creative flavors, and sweet sharing experiences.">
+  <title>CHURROVA – The Dessert Playground | Home 2</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="css/flavors.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <style>
+    /* Home 2 specific */
+    .mood-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem;
+    }
+
+    .mood-card {
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      background: var(--card-bg);
+    }
+
+    .mood-card:hover,
+    [.mood-card.active] {
+      border-color: var(--accent);
+      background: rgba(200, 121, 50, .07);
+      transform: translateY(-4px);
+    }
+
+    .mood-card.active {
+      border-color: var(--caramel);
+      background: rgba(200, 121, 50, .12);
+    }
+
+    .mood-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .mood-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-heading);
+      margin-bottom: 0.3rem;
+    }
+
+    .mood-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      max-width: none;
+      white-space: nowrap;
+    }
+
+    .filled-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .filled-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .filled-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .filled-card-img {
+      aspect-ratio: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .filled-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .filled-card:hover .filled-card-img img {
+      transform: scale(1.07);
+    }
+
+    .filled-label {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      background: rgba(27, 21, 17, .8);
+      backdrop-filter: blur(6px);
+      color: var(--cream);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+    }
+
+    [dir="rtl"] .filled-label {
+      left: auto;
+      right: 0.75rem;
+    }
+
+    .filled-card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    .filled-card-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--text-heading);
+      margin-bottom: 0.35rem;
+      height: 2.75rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+
+    .filled-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      max-width: none;
+      height: 2.55rem;
+      flex: 0 0 2.55rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+
+    .filled-card-body > div:last-child {
+      margin-top: auto !important;
+      padding-top: 1rem;
+    }
+
+    .sauce-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: stretch;
+    }
+
+    .sauce-showcase>* {
+      height: 100%;
+    }
+
+    .sauce-showcase>.reveal-right img {
+      height: 100% !important;
+      min-height: 0 !important;
+    }
+
+    .sauce-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .sauce-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .sauce-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .sauce-swatch {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-bottom: 0.6rem;
+      border: 2px solid var(--border-color);
+    }
+
+    .sauce-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-heading);
+      margin-bottom: 0.2rem;
+    }
+
+    .sauce-desc {
+      font-size: 0.77rem;
+      color: var(--text-muted);
+      max-width: none;
+      line-height: 1.5;
+    }
+
+    .specials-bento {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 1.25rem;
+    }
+
+    .bento-item {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      min-height: 220px;
+    }
+
+    .bento-item.tall {
+      grid-row: span 2;
+    }
+
+    .bento-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .bento-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .bento-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(27, 21, 17, .8), transparent 50%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+    }
+
+    .bento-label {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--cream);
+    }
+
+    .bento-sub {
+      font-size: 0.75rem;
+      color: rgba(255, 248, 237, .7);
+      margin-top: 0.15rem;
+    }
+
+    .sharing-tier {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .tier-card {
+      text-align: center;
+      padding: 2rem;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      transition: all var(--transition);
+      display: flex;
+      flex-direction: column;
+      min-height: 29.5rem;
+      position: relative;
+    }
+
+    .tier-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tier-card-featured {
+      padding-top: 2rem;
+    }
+
+    .tier-card > .btn {
+      align-self: center;
+      justify-content: center;
+      min-height: 2.25rem;
+      margin-top: auto !important;
+    }
+
+    .tier-card > .badge-caramel {
+      position: absolute;
+      top: -0.8125rem;
+      left: 50%;
+      z-index: 2;
+      margin: 0 !important;
+      white-space: nowrap;
+      background: var(--card-bg);
+      transform: translateX(-50%);
+    }
+
+    .tier-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--text-heading);
+      margin-bottom: 0.5rem;
+    }
+
+    .tier-serves {
+      background: rgba(200, 121, 50, .14);
+      border: 1px solid rgba(200, 121, 50, .28);
+      border-radius: var(--radius-pill);
+      padding: 0.25rem 0.85rem;
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .tier-features {
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto 1.5rem;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    .tier-features li {
+      width: 100%;
+    }
+
+    .preparation-timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: stretch;
+    }
+
+    .preparation-timeline>* {
+      height: 100%;
+    }
+
+    .preparation-timeline>.reveal-right img {
+      height: 100% !important;
+      min-height: 0 !important;
+    }
+
+    .timeline-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-step {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 44px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .step-dot {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      background: var(--caramel);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: white;
+      box-shadow: 0 3px 12px rgba(200, 121, 50, .3);
+    }
+
+    .seasonal-section {
+      background: linear-gradient(135deg, var(--cocoa) 0%, #4A2515 100%);
+      border-radius: var(--radius-xl);
+      padding: clamp(2.5rem, 5vw, 4rem);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: stretch;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .seasonal-section>* {
+      height: 100%;
+    }
+
+    .seasonal-section>div:last-child img {
+      height: 100% !important;
+      min-height: 0 !important;
+    }
+
+    .seasonal-section::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(200, 121, 50, .12);
+    }
+
+    .seasonal-section::after {
+      content: '';
+      position: absolute;
+      left: -40px;
+      bottom: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(200, 121, 50, .07);
+    }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 200px 200px;
+      gap: 1rem;
+    }
+
+    .community-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .community-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .community-item:hover img {
+      transform: scale(1.07);
+    }
+
+    .community-item.span2 {
+      grid-column: span 2;
+    }
+
+    .community-item.span-row {
+      grid-row: span 2;
+    }
+
+    @media(max-width:1024px) {
+      .mood-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .mood-grid > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        width: calc(50% - 0.625rem);
+        max-width: none;
+        box-sizing: border-box;
+        justify-self: center;
+      }
+
+      .sauce-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .specials-bento {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .bento-item.tall {
+        grid-row: auto;
+        grid-column: 1 / -1;
+        min-height: 360px;
+      }
+
+      .sharing-tier {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .preparation-timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .seasonal-section {
+        grid-template-columns: 1fr;
+      }
+
+      .sauce-showcase>*,
+      .preparation-timeline>*,
+      .seasonal-section>* {
+        height: auto;
+      }
+
+      .community-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+
+      .community-item.span2,
+      .community-item.span-row {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+
+    @media(max-width:600px) {
+      .mood-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sharing-tier {
+        grid-template-columns: 1fr;
+      }
+
+      .sauce-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .specials-bento {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-item.tall {
+        grid-column: auto;
+        min-height: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Header ─────────────────────────────────── -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="CHURROVA Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6zm-1 3v2.28A5.01 5.01 0 0 0 11 16a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5.01 5.01 0 0 0-4-4.9V9h-2zm1 4a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3z" />
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">CHURROVA</span>
+          <span class="brand-sub">Twist. Dip. Delight.</span>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="home2.html" class="active">Home 2</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="flavors.html">Flavors</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle dark/light mode"><span
+            data-theme-icon><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg></span></button>
+        <button class="icon-btn" data-action="toggle-rtl" aria-label="Toggle RTL"><span data-rtl-label
+            style="font-size:0.72rem;font-weight:700;">RTL</span></button>
+        <a href="signature-flavors.html" class="btn-header-cta">Signature Flavors</a>
+        <button class="mobile-toggle" aria-label="Open menu"
+          aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="drawer-overlay" aria-hidden="true"></div>
+  <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
+    <div class="drawer-header">
+      <span class="brand-name"
+        style="font-family:var(--font-display);font-size:1.2rem;color:var(--text-heading);">CHURROVA</span>
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="drawer-nav">
+      <a href="index.html">Home</a>
+      <a href="home2.html" class="active">Home 2</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="flavors.html">Flavors</a>
+      <a href="events.html">Events</a>
+      <a href="locations.html">Locations</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="drawer-controls">
+      <button class="icon-btn" data-action="toggle-theme"
+        style="flex:1;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;gap:0.4rem;"><span data-theme-icon
+          style="display:flex;align-items:center;gap:0.4rem;"><svg width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>Dark</span></button>
+      <button class="icon-btn" data-action="toggle-rtl"
+        style="flex:1;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:700;"><span
+          data-rtl-label>RTL</span></button>
+    </div>
+    <div class="drawer-cta"><a href="events.html" class="btn btn-primary"
+        style="width:100%;justify-content:center;">Explore Events</a></div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- HERO — SPLIT LAYOUT                                     -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="hero-split" role="banner" aria-label="Home 2 Hero">
+    <div class="hero-split-text">
+      <span class="section-label">The Dessert Playground</span>
+      <h1 class="hero-split-title">Life's Better With a Little <em
+          style="color:var(--accent);font-style:italic;">Twist.</em></h1>
+      <p class="lead" style="margin-bottom:2rem;">Discover filled churros bursting with flavor, creative topping
+        combinations, and the ultimate sharing experience. This is dessert done differently.</p>
+      <div class="btn-group">
+        <a href="flavors.html" class="btn btn-primary btn-lg">Discover Sweet Creations
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="events.html" class="btn btn-secondary">Explore Events</a>
+      </div>
+    </div>
+    <div class="hero-split-image">
+      <img src="assets/images/hero/hero-home2.jpg" alt="Filled churro broken open revealing creamy chocolate center"
+        loading="eager">
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 01. WHAT'S YOUR CHURRO MOOD?                            -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py bg-surface" aria-labelledby="mood-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <span class="section-label">01 — Your Churro Mood</span>
+        <h2 id="mood-title" class="section-title reveal">What's Your Churro Mood Today?</h2>
+        <p class="lead reveal delay-1" style="margin:0 auto;">Tell us your vibe and we'll match you with the perfect
+          flavors from our menu.</p>
+      </div>
+      <div class="mood-grid" id="mood-grid">
+        <div class="mood-card reveal" data-mood="indulgent" role="button" tabindex="0"
+          onclick="selectMood(this,'indulgent')">
+          <div class="mood-icon">🍫</div>
+          <div class="mood-name">Indulgent</div>
+          <div class="mood-desc">Rich, deep, intensely satisfying</div>
+        </div>
+        <div class="mood-card reveal delay-1" data-mood="sweet" role="button" tabindex="0"
+          onclick="selectMood(this,'sweet')">
+          <div class="mood-icon">🍯</div>
+          <div class="mood-name">Sweet &amp; Caramel</div>
+          <div class="mood-desc">Warm, comforting caramel notes</div>
+        </div>
+        <div class="mood-card reveal delay-2" data-mood="classic" role="button" tabindex="0"
+          onclick="selectMood(this,'classic')">
+          <div class="mood-icon">✨</div>
+          <div class="mood-name">Classic</div>
+          <div class="mood-desc">The original, perfect always</div>
+        </div>
+        <div class="mood-card reveal delay-3" data-mood="fruity" role="button" tabindex="0"
+          onclick="selectMood(this,'fruity')">
+          <div class="mood-icon">🍓</div>
+          <div class="mood-name">Fruity &amp; Fresh</div>
+          <div class="mood-desc">Light, bright berry flavors</div>
+        </div>
+        <div class="mood-card reveal delay-4" data-mood="adventurous" role="button" tabindex="0"
+          onclick="selectMood(this,'adventurous')">
+          <div class="mood-icon">🌟</div>
+          <div class="mood-name">Adventurous</div>
+          <div class="mood-desc">Unique, seasonal, unexpected</div>
+        </div>
+      </div>
+      <div id="mood-result" style="display:none;margin-top:2rem;text-align:center;" aria-live="polite">
+        <div
+          style="background:var(--card-bg);border:1.5px solid var(--accent);border-radius:var(--radius-xl);padding:2rem;max-width:500px;margin:0 auto;">
+          <h4 id="mood-result-title" style="margin-bottom:0.5rem;color:var(--accent);"></h4>
+          <p id="mood-result-desc" style="margin-bottom:1.25rem;color:var(--text-muted);"></p>
+          <a href="menu.html" class="btn btn-primary btn-sm">See These on the Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 02. FILLED WITH HAPPINESS                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py" aria-labelledby="filled-title">
+    <div class="container">
+      <span class="section-label">02 — Filled Churros</span>
+      <h2 id="filled-title" class="section-title reveal">Filled With Happiness</h2>
+      <p class="section-intro lead reveal delay-1">Each filled churro is piped with a luscious center — break it open to
+        reveal the magic inside.</p>
+      <div class="filled-grid">
+        <div class="filled-card reveal">
+          <div class="filled-card-img">
+            <img src="assets/images/menu/choc-filled.jpg" alt="Chocolate Filled Churro" loading="lazy">
+            <span class="filled-label">Bestseller</span>
+          </div>
+          <div class="filled-card-body">
+            <div class="filled-card-name">Dark Chocolate Ganache</div>
+            <div class="filled-card-desc">Rich dark chocolate center in a crispy cinnamon shell. Pure indulgence.</div>
+            <div style="margin-top:0.75rem;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-family:var(--font-display);font-size:1.2rem;color:var(--accent);">£4.99</span>
+              <a href="menu.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="filled-card reveal delay-1">
+          <div class="filled-card-img">
+            <img src="assets/images/menu/strawberry-cream.jpg" alt="Strawberry Cream Filled Churro" loading="lazy">
+            <span class="filled-label">Fan Favourite</span>
+          </div>
+          <div class="filled-card-body">
+            <div class="filled-card-name">Strawberry Cream</div>
+            <div class="filled-card-desc">Luscious strawberry cream with berry compote and a pink sugar finish.</div>
+            <div style="margin-top:0.75rem;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-family:var(--font-display);font-size:1.2rem;color:var(--accent);">£4.99</span>
+              <a href="menu.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="filled-card reveal delay-2">
+          <div class="filled-card-img">
+            <img src="assets/images/menu/vanilla-custard.jpg" alt="Vanilla Custard Filled Churro" loading="lazy">
+            <span class="filled-label">Popular</span>
+          </div>
+          <div class="filled-card-body">
+            <div class="filled-card-name">Vanilla Custard</div>
+            <div class="filled-card-desc">Silky smooth vanilla bean custard — warm churro, cold creamy center.</div>
+            <div style="margin-top:0.75rem;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-family:var(--font-display);font-size:1.2rem;color:var(--accent);">£4.99</span>
+              <a href="menu.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="filled-card reveal delay-3">
+          <div class="filled-card-img">
+            <img src="assets/images/menu/pistachio-cream.jpg" alt="Pistachio Cream Filled Churro" loading="lazy">
+            <span class="filled-label">New</span>
+          </div>
+          <div class="filled-card-body">
+            <div class="filled-card-name">Pistachio Cream</div>
+            <div class="filled-card-desc">Fragrant pistachio cream with a delicate crushed-nut coating.</div>
+            <div style="margin-top:0.75rem;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-family:var(--font-display);font-size:1.2rem;color:var(--accent);">£5.49</span>
+              <a href="menu.html" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="menu.html" class="btn btn-primary">See All Filled Churros
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 03. DIP INTO SOMETHING GOOD                             -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py bg-surface" aria-labelledby="sauces-title">
+    <div class="container">
+      <div class="sauce-showcase">
+        <div>
+          <span class="section-label">03 — Signature Sauces</span>
+          <h2 id="sauces-title" class="section-title reveal">Dip Into Something Good</h2>
+          <p class="lead reveal delay-1" style="margin-bottom:2rem;">Our signature dipping sauces are crafted to elevate
+            every churro. From classic chocolate to bold seasonal creations.</p>
+          <div class="sauce-grid">
+            <div class="sauce-item reveal">
+              <div class="sauce-swatch" style="background:linear-gradient(135deg,#38251C,#6B3A2A);"></div>
+              <div class="sauce-name">Dark Chocolate</div>
+              <div class="sauce-desc">Rich, velvety dark chocolate ganache — the timeless pairing.</div>
+            </div>
+            <div class="sauce-item reveal delay-1">
+              <div class="sauce-swatch" style="background:linear-gradient(135deg,#C87932,#E6A461);"></div>
+              <div class="sauce-name">Salted Caramel</div>
+              <div class="sauce-desc">Buttery caramel with flaked sea salt — sweet meets savoury.</div>
+            </div>
+            <div class="sauce-item reveal delay-2">
+              <div class="sauce-swatch" style="background:linear-gradient(135deg,#F5F0E8,#EAD8C0);"></div>
+              <div class="sauce-name">White Chocolate</div>
+              <div class="sauce-desc">Creamy, sweet white chocolate with a smooth silky texture.</div>
+            </div>
+            <div class="sauce-item reveal delay-3">
+              <div class="sauce-swatch" style="background:linear-gradient(135deg,#D4506A,#F8A0B0);"></div>
+              <div class="sauce-name">Strawberry Coulis</div>
+              <div class="sauce-desc">Fresh strawberry reduction — bright, fruity and irresistible.</div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right" style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+          <img src="assets/images/hero/hero-menu.jpg" alt="Churro assortment with dipping sauces"
+            style="width:100%;height:100%;object-fit:cover;min-height:400px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 04. BEYOND THE CLASSIC — FRIED DESSERT SPECIALS        -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py" aria-labelledby="specials-title">
+    <div class="container">
+      <div
+        style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;">
+        <div>
+          <span class="section-label">04 — Fried Dessert Specials</span>
+          <h2 id="specials-title" class="section-title reveal">Beyond the Classic</h2>
+        </div>
+        <a href="menu.html" class="btn btn-secondary btn-sm">Full Menu</a>
+      </div>
+      <div class="specials-bento">
+        <div class="bento-item tall reveal">
+          <img src="assets/images/menu/churro-sundae.jpg" alt="Churro Sundae" loading="lazy">
+          <div class="bento-overlay">
+            <div>
+              <div class="bento-label">Churro Sundae</div>
+              <div class="bento-sub">Churro bites + ice cream + sauce</div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item reveal delay-1">
+          <img src="assets/images/menu/churro-bites.jpg" alt="Churro Bites" loading="lazy">
+          <div class="bento-overlay">
+            <div>
+              <div class="bento-label">Churro Bites</div>
+              <div class="bento-sub">Perfect shareable snacking</div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item reveal delay-2">
+          <img src="assets/images/menu/pumpkin-spice-churro.jpg" alt="Seasonal fried churro waffle special" loading="lazy">
+          <div class="bento-overlay" style="background:linear-gradient(180deg,rgba(27,21,17,.9),rgba(27,21,17,.5));padding:1.25rem;align-items:flex-start;">
+            <div>
+              <div class="bento-label" style="font-size:0.75rem;color:#E6A461;margin-bottom:0.5rem;">Chef's Choice</div>
+              <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--cream);margin-bottom:0.4rem;">
+                Fried Churro Waffle</div>
+              <div style="font-size:0.78rem;color:rgba(255,248,237,.7);">Seasonal special — ask in store</div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item reveal delay-3">
+          <img src="assets/images/hero/hero-about.jpg" alt="Fresh preparation" loading="lazy">
+          <div class="bento-overlay">
+            <div>
+              <div class="bento-label">Daily Fresh</div>
+              <div class="bento-sub">Made fresh every morning</div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item reveal delay-4">
+          <img src="assets/images/hero/hero-flavors.jpg" alt="Signature churro flavor selection" loading="lazy">
+          <div class="bento-overlay">
+            <div>
+              <div class="bento-label">Signature Selection</div>
+              <div class="bento-sub">A flavor for every craving</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 05. MAKE IT A SHARING BOX                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py bg-surface" aria-labelledby="sharing-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="section-label">05 — Sharing Boxes</span>
+        <h2 id="sharing-title" class="section-title reveal">Make It a Sharing Box</h2>
+        <p class="lead reveal delay-1" style="margin:0 auto;">Group-friendly combinations for every occasion — from a
+          cozy date to a full party crowd.</p>
+      </div>
+      <div class="sharing-tier">
+        <div class="tier-card reveal">
+          <div class="tier-icon">👫</div>
+          <div class="tier-name">Duo Box</div>
+          <div class="tier-serves">Serves 2</div>
+          <ul class="tier-features">
+            <li>✓ 4× Classic Churros</li>
+            <li>✓ 2× Filled Churros</li>
+            <li>✓ 2× Dipping Sauces</li>
+            <li>✓ Churro Bites (small)</li>
+            <li>&#10003; Choice of Cinnamon Sugar</li>
+          </ul>
+          <p style="font-size:0.78rem;color:var(--text-muted);">Enquire in-store or via contact form</p>
+          <a href="contact.html" class="btn btn-secondary btn-sm"
+            style="margin-top:1rem;display:inline-flex;">Enquire</a>
+        </div>
+        <div class="tier-card tier-card-featured reveal delay-1" style="border-color:var(--caramel);background:rgba(200,121,50,.04);">
+          <div class="tier-icon">👨‍👩‍👧‍👦</div>
+          <div class="tier-name">Family Box</div>
+          <div class="tier-serves">Serves 4–6</div>
+          <ul class="tier-features">
+            <li>✓ 8× Classic Churros</li>
+            <li>✓ 4× Filled Churros (2 flavors)</li>
+            <li>✓ Churro Bites (large)</li>
+            <li>✓ 3× Dipping Sauces</li>
+            <li>✓ Seasonal Special</li>
+          </ul>
+          <span class="badge-caramel" style="margin-bottom:0.5rem;display:inline-flex;">Most Popular</span>
+          <a href="contact.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Enquire</a>
+        </div>
+        <div class="tier-card reveal delay-2">
+          <div class="tier-icon">🎉</div>
+          <div class="tier-name">Party Box</div>
+          <div class="tier-serves">Serves 10+</div>
+          <ul class="tier-features">
+            <li>✓ Custom quantity churros</li>
+            <li>✓ Full filled churro range</li>
+            <li>✓ All 5 dipping sauces</li>
+            <li>✓ Churro Bites (xl)</li>
+            <li>✓ Custom box design</li>
+          </ul>
+          <p style="font-size:0.78rem;color:var(--text-muted);">Bespoke pricing — contact us</p>
+          <a href="contact.html" class="btn btn-secondary btn-sm" style="margin-top:1rem;display:inline-flex;">Get a
+            Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 06. SWEET TREATS FOR EVERY OCCASION                    -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="cta-banner" aria-labelledby="occasions-cta-title">
+    <div class="cta-banner-bg">
+      <img src="assets/images/cta/home2.png" alt="Churro station at celebration event" loading="lazy">
+    </div>
+    <div class="cta-banner-overlay"></div>
+    <div class="container">
+      <div class="cta-banner-content reveal">
+        <span class="section-label" style="color:#E6A461;">06 — Events & Occasions</span>
+        <h2 id="occasions-cta-title" class="cta-banner-title">Sweet Treats for Every Occasion</h2>
+        <p class="cta-banner-text">Birthdays, weddings, corporate celebrations, festivals — our live churro stations
+          bring the golden magic wherever you are.</p>
+        <div class="btn-group">
+          <a href="events.html" class="btn btn-primary btn-lg">Explore Event Services</a>
+          <a href="events.html#event-enquiry" class="btn btn-ghost">Book a Station</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 07. BEHIND THE GOLDEN CRUNCH                           -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py" aria-labelledby="prep-title-h2">
+    <div class="container">
+      <div class="preparation-timeline">
+        <div>
+          <span class="section-label">07 — Our Craft</span>
+          <h2 id="prep-title-h2" class="section-title reveal">Behind the Golden Crunch</h2>
+          <p class="lead reveal delay-1" style="margin-bottom:2.5rem;">Every churro we serve starts with a recipe we're
+            proud of and hands that care. Here's how we bring the golden crunch to life.</p>
+          <div class="timeline-steps">
+            <div class="timeline-step reveal">
+              <div class="step-dot">1</div>
+              <div>
+                <h4 style="margin-bottom:0.4rem;">The Perfect Batter</h4>
+                <p style="font-size:0.88rem;color:var(--text-muted);">Flour, eggs, butter and just the right touch of
+                  salt — our signature batter recipe hasn't changed since we started.</p>
+              </div>
+            </div>
+            <div class="timeline-step reveal delay-1">
+              <div class="step-dot">2</div>
+              <div>
+                <h4 style="margin-bottom:0.4rem;">Piped Fresh, Fried Hot</h4>
+                <p style="font-size:0.88rem;color:var(--text-muted);">Each churro is piped directly into clean hot oil
+                  and fried to a perfect golden crisp — never pre-made, always fresh.</p>
+              </div>
+            </div>
+            <div class="timeline-step reveal delay-2">
+              <div class="step-dot">3</div>
+              <div>
+                <h4 style="margin-bottom:0.4rem;">Filled &amp; Finished</h4>
+                <p style="font-size:0.88rem;color:var(--text-muted);">Filled churros get their creamy center piped in
+                  immediately after frying. Then tossed in cinnamon sugar by hand.</p>
+              </div>
+            </div>
+            <div class="timeline-step reveal delay-3">
+              <div class="step-dot">4</div>
+              <div>
+                <h4 style="margin-bottom:0.4rem;">Served in Minutes</h4>
+                <p style="font-size:0.88rem;color:var(--text-muted);">From fryer to plate in under 5 minutes. Hot,
+                  crispy, perfect — that's the CHURROVA promise.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right" style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+          <img src="assets/images/hero/hero-about.jpg" alt="Artisan preparing churros"
+            style="width:100%;height:100%;object-fit:cover;min-height:480px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 08. FLAVOR OF THE SEASON                               -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py bg-surface" aria-labelledby="seasonal-title">
+    <div class="container">
+      <div class="seasonal-section">
+        <div style="position:relative;z-index:1;">
+          <span class="section-label" style="color:#E6A461;">08 — Seasonal</span>
+          <h2 id="seasonal-title" style="color:var(--cream);margin-bottom:1rem;font-size:clamp(1.6rem,3.5vw,2.5rem);">
+            Flavor of the Season</h2>
+          <p style="color:rgba(255,248,237,.75);margin-bottom:2rem;max-width:45ch;font-size:0.95rem;line-height:1.7;">
+            Each season we launch a limited-edition flavor inspired by the finest seasonal ingredients. Available for a
+            limited time only — don't miss it.
+          </p>
+          <div
+            style="background:rgba(255,248,237,.1);border:1px solid rgba(255,248,237,.2);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:2rem;">
+            <div
+              style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E6A461;margin-bottom:0.4rem;">
+              Autumn Season — Now Available</div>
+            <div style="font-family:var(--font-display);font-size:1.4rem;color:var(--cream);margin-bottom:0.3rem;">
+              Pumpkin Spice &amp; Maple</div>
+            <div style="font-size:0.85rem;color:rgba(255,248,237,.7);">Warm pumpkin spice filling with a maple glaze and
+              candied pecan topping. A seasonal masterpiece.</div>
+          </div>
+          <a href="menu.html" class="btn btn-primary">Try the Seasonal Special
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        <div
+          style="position:relative;z-index:1;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+          <img src="assets/images/menu/pumpkin-spice-churro.jpg" alt="Seasonal pumpkin spice churro"
+            style="width:100%;height:100%;object-fit:cover;min-height:350px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 09. COMMUNITY DESSERT MOMENTS                          -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py" aria-labelledby="community-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <span class="section-label">09 — Community</span>
+        <h2 id="community-title" class="section-title reveal">Sweet Moments, Shared</h2>
+        <p class="lead reveal delay-1" style="margin:0 auto;">Real moments from our community. Tag us <strong
+            style="color:var(--accent);">@churrova</strong> to be featured.</p>
+      </div>
+      <div class="community-grid reveal">
+        <div class="community-item span2">
+          <img src="assets/images/events/community-fair.jpg" alt="Families enjoying warm churros together at local community fair"
+            loading="lazy">
+        </div>
+        <div class="community-item">
+          <img src="assets/images/menu/sharing-bites-platter.jpg" alt="Generous bites platter with artisan chocolate and caramel dips"
+            loading="lazy">
+        </div>
+        <div class="community-item span-row">
+          <img src="assets/images/events/food-festival.jpg" alt="Guests enjoying hot fresh churro cones at lively outdoor festival"
+            loading="lazy">
+        </div>
+        <div class="community-item">
+          <img src="assets/images/pages/page-takeaway-cone.png" alt="Churro takeaway cone with dipping sauces"
+            loading="lazy">
+        </div>
+        <div class="community-item">
+          <img src="assets/images/events/popup-dessert-bar.jpg" alt="Community members at our vibrant dessert bar counter"
+            loading="lazy">
+        </div>
+        <div class="community-item">
+          <img src="assets/images/events/college-campus.jpg" alt="Friends sharing churros at student pop-up cart"
+            loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 10. FINAL CTA — FIND YOUR SWEET SPOT                   -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="cta-gradient" style="--cta-image:url('../assets/images/cta/home2-cta.png');"
+    aria-labelledby="h2-final-cta">
+    <div class="container text-center">
+      <span class="section-label" style="color:#E6A461;justify-content:center;display:flex;">Ready to Twist?</span>
+      <h2 id="h2-final-cta" style="color:var(--cream);margin-bottom:1rem;" class="reveal">Find Your Sweet Spot</h2>
+      <p class="lead reveal delay-1" style="margin:0 auto 2rem;color:rgba(255,248,237,.75);">Three London locations, one
+        shared obsession — golden, crispy, unforgettable churros.</p>
+      <div class="btn-group reveal delay-2" style="justify-content:center;">
+        <a href="locations.html" class="btn btn-primary btn-lg">Find a Location</a>
+        <a href="menu.html" class="btn btn-ghost btn-lg">View the Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <div class="footer-logo-icon"><svg viewBox="0 0 32 32">
+                <path
+                  d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6zm-1 3v2.28A5.01 5.01 0 0 0 11 16a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5.01 5.01 0 0 0-4-4.9V9h-2zm1 4a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3z" />
+              </svg></div>
+            <div>
+              <div class="footer-brand-name">CHURROVA</div><span class="footer-tagline">Twist. Dip. Delight.</span>
+            </div>
+          </a>
+          <p>London's favourite freshly fried churro bar. Made with quality ingredients, served with passion.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg></a>
+            <a href="#" class="social-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+              </svg></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg></a>
+          </div>
+          <div class="newsletter-wrap">
+            <div class="newsletter-title">Sweet updates in your inbox</div>
+            <div class="newsletter-sub">New flavors, seasonal specials and event news.</div>
+            <form class="newsletter-form" novalidate>
+              <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Menu</div>
+          <ul class="footer-links">
+            <li><a href="menu.html">Classic Churros</a></li>
+            <li><a href="menu.html">Filled Churros</a></li>
+            <li><a href="menu.html">Churro Bites</a></li>
+            <li><a href="menu.html">Sharing Boxes</a></li>
+            <li><a href="menu.html">Seasonal Specials</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Explore</div>
+          <ul class="footer-links">
+            <li><a href="flavors.html">Signature Flavors</a></li>
+            <li><a href="events.html">Events &amp; Festivals</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Opening Hours</div>
+          <div class="hours-list">
+            <div class="hours-item"><span class="day">Mon–Fri</span><span>11am–10pm</span></div>
+            <div class="hours-item"><span class="day">Saturday</span><span>10am–11pm</span></div>
+            <div class="hours-item"><span class="day">Sunday</span><span>10am–9pm</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 CHURROVA Churro &amp; Fried Dessert Co. All rights reserved.</p>
+        <nav class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Allergens</a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const moodData = {
+      indulgent: { title: 'Perfect for you: Chocolate Filled Churros', desc: 'Rich dark chocolate ganache filled churro — deeply satisfying and impossible to resist.' },
+      sweet: { title: 'Perfect for you: Salted Caramel Twist', desc: 'Our signature caramel drizzle churro hits every sweet-salty note you\'re craving.' },
+      classic: { title: 'Perfect for you: Classic Cinnamon Sugar', desc: 'The original. Crispy, warm, perfectly coated. Some things are timeless for a reason.' },
+      fruity: { title: 'Perfect for you: Strawberry Cream Churro', desc: 'Luscious strawberry cream filling with fresh berry flavors — light and irresistible.' },
+      adventurous: { title: 'Perfect for you: Pumpkin Spice & Maple (Seasonal)', desc: 'Our bold seasonal creation — pumpkin spice, maple glaze and candied pecan. Unique and unforgettable.' },
+    };
+
+    function selectMood(el, mood) {
+      document.querySelectorAll('.mood-card').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      const result = document.getElementById('mood-result');
+      document.getElementById('mood-result-title').textContent = moodData[mood].title;
+      document.getElementById('mood-result-desc').textContent = moodData[mood].desc;
+      result.style.display = 'block';
+    }
+  </script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

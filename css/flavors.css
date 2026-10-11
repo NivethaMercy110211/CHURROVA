@@ -1,0 +1,349 @@
+/* ============================================================
+   CHURROVA — Flavors Page
+   ============================================================ */
+
+/* Flavor Hero Lineup */
+.finder-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: stretch;
+}
+
+.finder-layout>* {
+  height: 100%;
+}
+
+.finder-layout>.reveal-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 3rem);
+  background-image:
+    linear-gradient(110deg, rgba(27, 21, 17, .9), rgba(27, 21, 17, .62)),
+    url('../assets/images/menu/family-box.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 248, 237, .2);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  color: var(--cream);
+}
+
+.finder-layout>.reveal-left .section-label {
+  color: #FFD39A;
+}
+
+.finder-layout>.reveal-left .section-title {
+  color: var(--cream);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .35);
+}
+
+.finder-layout>.reveal-left .lead {
+  color: rgba(255, 248, 237, .88);
+}
+
+.flavor-lineup {
+  display: grid;
+  gap: 0;
+}
+
+.flavor-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 540px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.flavor-showcase-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.flavor-showcase-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.flavor-showcase:hover .flavor-showcase-img img {
+  transform: scale(1.04);
+}
+
+.flavor-showcase-content {
+  background: var(--card-bg);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flavor-number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1;
+  color: rgba(200, 121, 50, .1);
+  margin-bottom: 0.75rem;
+  display: block;
+  letter-spacing: -0.05em;
+}
+
+.flavor-name {
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  margin-bottom: 0.75rem;
+}
+
+.flavor-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 1.5rem;
+  max-width: 45ch;
+}
+
+.flavor-pairings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.pairing-chip {
+  background: var(--bg2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-body);
+}
+
+/* Flavor Grid */
+.flavor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.flavor-tile {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.flavor-tile:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: var(--shadow-lg);
+}
+
+.flavor-tile-img {
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.flavor-tile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.flavor-tile:hover .flavor-tile-img img {
+  transform: scale(1.07);
+}
+
+.flavor-tile-body {
+  padding: 1.25rem;
+}
+
+.flavor-tile-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.35;
+  min-height: 2.7em;
+  color: var(--text-heading);
+  margin-bottom: 0.4rem;
+}
+
+.flavor-tile-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: none;
+}
+
+/* Seasonal Banner */
+.seasonal-banner {
+  background-image:
+    linear-gradient(105deg, rgba(55, 27, 10, .9) 0%, rgba(91, 45, 15, .76) 55%, rgba(91, 45, 15, .45) 100%),
+    url('../assets/images/cta/flavour-cta.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.seasonal-banner::before {
+  content: '';
+  position: absolute;
+  right: -4rem;
+  top: -4rem;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .07);
+}
+
+.seasonal-banner-title {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.seasonal-banner-text {
+  color: rgba(255, 248, 237, .75);
+  max-width: 50ch;
+  font-size: 0.92rem;
+}
+
+/* Flavor Finder Quiz */
+.flavor-finder {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 5vw, 3rem);
+  box-shadow: var(--shadow-md);
+}
+
+.finder-step {
+  display: none;
+}
+
+.finder-step.active {
+  display: block;
+}
+
+.finder-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.finder-option {
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  background: var(--bg);
+}
+
+.finder-option:hover,
+.finder-option.selected {
+  border-color: var(--accent);
+  background: rgba(200, 121, 50, .08);
+}
+
+.finder-option-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.finder-option-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.finder-progress {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.finder-progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-color);
+  transition: background var(--transition);
+}
+
+.finder-progress-dot.active {
+  background: var(--caramel);
+}
+
+.finder-progress-dot.done {
+  background: var(--caramel-dark);
+}
+
+.finder-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .finder-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .finder-layout>* {
+    height: auto;
+  }
+
+  .flavor-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .flavor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seasonal-banner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .flavor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .finder-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .flavor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .finder-options {
+    grid-template-columns: 1fr;
+  }
+
+  .finder-results {
+    grid-template-columns: 1fr;
+  }
+}

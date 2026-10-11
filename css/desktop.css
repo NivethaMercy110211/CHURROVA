@@ -1,0 +1,16 @@
+/* ============================================================
+   CHURROVA — Responsive: Desktop 1440px+
+   ============================================================ */
+
+@media (min-width: 1440px) {
+  :root { --container-px: 2.5rem; }
+
+  .hero-title { font-size: 5.5rem; }
+  .footer-grid { grid-template-columns: 2.5fr 1fr 1fr 1fr; }
+  .menu-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .menu-grid > :last-child:nth-child(4n + 1) {
+    grid-column: 1 / -1;
+    width: min(100%, 19rem);
+    justify-self: center;
+  }
+}

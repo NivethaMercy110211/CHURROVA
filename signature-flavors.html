@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover CHURROVA's three signature churro flavors.">
+  <title>Signature Flavors – CHURROVA</title>
+  <link rel="icon" type="image/png" href="assets/images/common/light-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <style>
+    .signature-hero { min-height: 440px; }
+    .signature-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem; }
+    .signature-card { overflow:hidden;background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);transition:transform var(--transition),box-shadow var(--transition); }
+    .signature-card:hover { transform:translateY(-5px);box-shadow:var(--shadow-lg); }
+    .signature-card img { width:100%;aspect-ratio:4/3;object-fit:cover; }
+    .signature-card-body { padding:1.5rem; }
+    .signature-card-body h2 { font-size:1.35rem;margin:.35rem 0 .65rem; }
+    .signature-card-body p { font-size:.9rem;color:var(--text-muted);margin:0; }
+    @media(max-width:767px){.signature-grid{grid-template-columns:1fr}.signature-hero{min-height:380px}}
+  </style>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo" aria-label="CHURROVA home">
+      <div class="logo-icon"></div>
+      <div class="logo-text"><span class="brand-name">CHURROVA</span><span class="brand-sub">Twist. Dip. Delight.</span></div>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation"><ul class="nav-list">
+      <li><a href="index.html">Home</a></li><li><a href="home2.html">Home 2</a></li><li><a href="menu.html">Menu</a></li><li><a href="flavors.html">Flavors</a></li><li><a href="events.html">Events</a></li><li><a href="locations.html">Locations</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+    </ul></nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle dark/light mode"><span data-theme-icon></span></button>
+      <button class="icon-btn" data-action="toggle-rtl" aria-label="Toggle RTL"><span data-rtl-label style="font-size:.72rem;font-weight:700;">RTL</span></button>
+      <a href="signature-flavors.html" class="btn-header-cta">Signature Flavors</a>
+      <button class="mobile-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-drawer"><nav class="drawer-nav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="home2.html">Home 2</a><a href="about.html">About</a><a href="menu.html">Menu</a><a href="flavors.html">Flavors</a><a href="events.html">Events</a><a href="locations.html">Locations</a><a href="contact.html">Contact</a></nav></div>
+</header>
+
+<main>
+  <section class="page-hero signature-hero" aria-labelledby="signature-title">
+    <div class="page-hero-bg"><img src="assets/images/pages/page-caramel-plate.png" alt="CHURROVA signature churros served with artisan dips"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <span class="section-label">The CHURROVA Essentials</span>
+      <h1 id="signature-title" class="page-hero-title">Three Icons. One Golden Standard.</h1>
+      <p class="page-hero-lead">Our most-loved flavors, fried fresh and finished by hand.</p>
+    </div>
+  </section>
+
+  <section class="section-py" aria-labelledby="collection-title">
+    <div class="container">
+      <div class="text-center" style="max-width:680px;margin:0 auto 3rem;">
+        <span class="section-label">Signature Collection</span>
+        <h2 id="collection-title">Choose Your Favorite</h2>
+      </div>
+      <div class="signature-grid">
+        <article class="signature-card reveal">
+          <img src="assets/images/menu/classic-churro.jpg" alt="Classic cinnamon sugar churros" loading="lazy">
+          <div class="signature-card-body"><span class="section-label">The Original</span><h2>Classic Cinnamon</h2><p>Golden, crisp and finished with warm cinnamon sugar.</p></div>
+        </article>
+        <article class="signature-card reveal delay-1">
+          <img src="assets/images/pages/page-chocolate-filled.png" alt="Chocolate filled churros" loading="lazy">
+          <div class="signature-card-body"><span class="section-label">Rich &amp; Molten</span><h2>Chocolate Filled</h2><p>A crisp shell with a smooth dark-chocolate center.</p></div>
+        </article>
+        <article class="signature-card reveal delay-2">
+          <img src="assets/images/pages/page-caramel-drizzle.png" alt="Salted caramel churros" loading="lazy">
+          <div class="signature-card-body"><span class="section-label">Sweet &amp; Salty</span><h2>Salted Caramel</h2><p>Caramel glaze, sea salt and a freshly fried golden finish.</p></div>
+        </article>
+      </div>
+      <div class="btn-group" style="justify-content:center;margin-top:2.5rem;"><a href="menu.html" class="btn btn-primary">View Full Menu</a><a href="locations.html" class="btn btn-secondary">Find a Store</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" role="contentinfo"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="footer-logo"><div class="footer-logo-icon"></div><div><div class="footer-brand-name">CHURROVA</div><span class="footer-tagline">Twist. Dip. Delight.</span></div></a><p>Freshly fried artisan churros and signature dipping sauces.</p><div class="footer-social"><a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg></a><a href="#" class="social-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a></div></div>
+    <div><div class="footer-col-title">Menu</div><ul class="footer-links"><li><a href="menu.html">Classic Churros</a></li><li><a href="menu.html">Filled Churros</a></li><li><a href="menu.html">Signature Dips</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">Our Story</a></li><li><a href="events.html">Events</a></li><li><a href="locations.html">Locations</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Opening Hours</div><div class="hours-list"><div class="hours-item"><span class="day">Mon–Fri</span><span>11am–10pm</span></div><div class="hours-item"><span class="day">Sat</span><span>10am–11pm</span></div><div class="hours-item"><span class="day">Sun</span><span>10am–9pm</span></div></div><div class="newsletter-wrap"><div class="newsletter-title">Sweet updates</div><div class="newsletter-sub">Seasonal specials and events.</div><form class="newsletter-form" novalidate><input type="email" placeholder="Your email" aria-label="Email"><button type="submit">Subscribe</button></form></div></div>
+  </div>
+  <div class="footer-bottom"><p class="footer-copyright">&copy; 2026 CHURROVA. All rights reserved.</p><nav class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Allergens</a></nav></div>
+</div></footer>
+<script src="js/main.js"></script>
+</body>
+</html>

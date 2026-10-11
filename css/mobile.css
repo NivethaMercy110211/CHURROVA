@@ -1,0 +1,538 @@
+/* ============================================================
+   CHURROVA — Responsive: Mobile 360px–767px
+   ============================================================ */
+
+@media (max-width: 600px) {
+  html {
+    font-size: 103.125%;
+  }
+
+  :root {
+    --section-py: clamp(2.5rem, 8vw, 4rem);
+    --container-px: 1.1rem;
+  }
+
+  /* Typography scale down */
+  h1 {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 92vh;
+  }
+
+  .hero-content {
+    padding-top: 5.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .hero-lead {
+    font-size: 0.95rem;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .hero-btns .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-floating-label {
+    display: none;
+  }
+
+  /* Hero split */
+  .hero-split {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-split-image {
+    min-height: 280px;
+  }
+
+  .hero-split-text {
+    padding: 5rem 1.25rem 2.5rem;
+  }
+
+  /* Menu */
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-card-featured {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+
+  .category-chips {
+    gap: 0.4rem;
+  }
+
+  .chip {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .filter-row {
+    gap: 0.5rem;
+  }
+
+  .filter-row .filter-label {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+
+  .filter-row .filter-select {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .menu-search-row {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 1rem;
+  }
+
+  .menu-search-row .search-field {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  /* Forms */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-wrap {
+    padding: 1.5rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-legal {
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  /* Flavor rail */
+  .flavor-card {
+    flex: 0 0 220px;
+  }
+
+  .flavor-rail {
+    padding: 1rem 1.5rem;
+  }
+
+  /* CTA Banner */
+  .cta-banner {
+    min-height: auto;
+    padding-top: clamp(3.5rem, 12vw, 5rem);
+    padding-bottom: clamp(3.5rem, 12vw, 5rem);
+  }
+
+  .cta-banner-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(27, 21, 17, 0.88) 0%,
+      rgba(27, 21, 17, 0.72) 50%,
+      rgba(27, 21, 17, 0.88) 100%
+    );
+  }
+
+  .cta-banner-content {
+    width: 100%;
+    padding-inline: 0.5rem;
+  }
+
+  .cta-banner-title {
+    font-size: clamp(1.6rem, 6.5vw, 2.2rem);
+    line-height: 1.2;
+    margin-bottom: 0.85rem;
+  }
+
+  .cta-banner-text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0 auto 1.75rem;
+  }
+
+  /* Buttons */
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Drawer */
+  .mobile-drawer {
+    width: 100%;
+  }
+
+  /* Keep the announcement compact and the header controls visible. */
+  #fresh-strip {
+    font-size: 0.75rem;
+    line-height: 1.35;
+    padding: 0.45rem 0;
+  }
+
+  #fresh-strip .strip-inner {
+    gap: 0.35rem;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+
+  #fresh-strip .strip-inner svg {
+    flex: 0 0 auto;
+  }
+
+  #fresh-strip .strip-inner strong {
+    white-space: nowrap;
+  }
+
+  #fresh-strip .strip-close {
+    right: 0.65rem;
+  }
+
+  .site-header {
+    padding: 0.8rem 0;
+    background: #FFF8ED;
+    box-shadow: 0 4px 18px rgba(62, 36, 18, 0.12);
+  }
+
+  [data-theme="dark"] .site-header {
+    background: #1B1511;
+  }
+
+  .header-actions {
+    gap: 0.45rem;
+  }
+
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobile-toggle {
+    min-width: 36px;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Logo */
+  .logo-text .brand-name {
+    font-size: 1.1rem;
+  }
+
+  .logo-text .brand-sub {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Page hero - full content visible, dynamic height */
+  .page-hero {
+    height: auto;
+    min-height: clamp(340px, 60vh, 460px);
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .page-hero-bg img {
+    object-position: center center;
+  }
+
+  .page-hero-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(27, 21, 17, 0.95) 0%,
+      rgba(27, 21, 17, 0.78) 55%,
+      rgba(27, 21, 17, 0.48) 100%
+    );
+  }
+
+  .page-hero-content {
+    width: 100%;
+    padding-top: clamp(4.75rem, 13vw, 6rem);
+    padding-bottom: clamp(2rem, 6vw, 3rem);
+  }
+
+  .page-hero-content .section-label {
+    margin: 0 auto 0.75rem;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .page-hero-title {
+    font-size: clamp(1.7rem, 6.8vw, 2.35rem);
+    line-height: 1.18;
+    margin-bottom: 0.75rem;
+    word-break: break-word;
+  }
+
+  .page-hero-lead {
+    font-size: clamp(0.88rem, 3.4vw, 0.98rem);
+    line-height: 1.6;
+    max-width: 100%;
+    width: 100%;
+    color: rgba(255, 248, 237, 0.92);
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+  }
+
+  .page-hero-content div:has(.btn),
+  .page-hero-content .btn-group {
+    justify-content: center;
+  }
+}
+
+/* Very small: 360px */
+@media (max-width: 380px) {
+  :root {
+    --container-px: 1rem;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .site-logo {
+    gap: 0.5rem;
+  }
+
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .logo-text .brand-name {
+    font-size: 1rem;
+  }
+
+  .logo-text .brand-sub {
+    font-size: 0.46rem;
+    letter-spacing: 0.08em;
+  }
+
+  .header-actions {
+    gap: 0.3rem;
+  }
+
+  .page-hero {
+    min-height: 330px;
+  }
+
+  .page-hero-content {
+    padding-top: 4.5rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .page-hero-title {
+    font-size: 1.6rem;
+  }
+
+  .page-hero-lead {
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .cta-banner {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+}
+
+/* 360px mobile: all section/card collections stack one-by-one. */
+@media (max-width: 600px) {
+  .row,
+  .menu-grid,
+  .form-row,
+  .footer-grid,
+  .event-stat-grid,
+  .event-types-grid,
+  .packages-grid,
+  .booking-steps,
+  .builder-grid,
+  .builder-grid.guest-count-grid,
+  .flavor-grid,
+  .finder-options,
+  .finder-results,
+  .location-grid,
+  .map-locations-grid,
+  .mood-grid,
+  .filled-grid,
+  .sauce-grid,
+  .sharing-tier,
+  .specials-bento,
+  .community-grid,
+  .dip-grid,
+  .pairing-grid,
+  .preparation-grid,
+  .box-select-grid,
+  .gallery-grid,
+  .testimonials-grid,
+  .signature-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .menu-card-featured,
+  .gallery-item,
+  .gallery-item.wide,
+  .gallery-item.tall,
+  .community-item,
+  .community-item.span-row,
+  .bento-item,
+  .bento-item.tall {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* Every Signature Dips card follows the same full-width mobile stack. */
+  .menu-grid.dips-grid > .menu-card,
+  .menu-grid.dips-grid > .menu-card:last-child:nth-child(odd) {
+    grid-column: auto !important;
+    width: 100% !important;
+    justify-self: stretch !important;
+  }
+
+  /* Keep flavor pairing badges in equal, predictable mobile rows. */
+  .flavor-pairings {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .flavor-pairings .pairing-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .seasonal-banner .btn {
+    display: flex;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .live-station {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 2rem;
+  }
+
+  .live-station > *,
+  .station-feature > div:last-child {
+    min-width: 0;
+  }
+
+  .live-station .lead,
+  .station-feature-title,
+  .station-feature-desc {
+    overflow-wrap: anywhere;
+  }
+
+  .live-station .station-img {
+    width: 100%;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 3;
+  }
+
+  .package-feature > span:last-child {
+    white-space: nowrap;
+    font-size: 0.78rem;
+  }
+
+  #event-enquiry-link {
+    display: flex;
+    width: max-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+
+  /* Event Builder Options with Images in Mobile */
+  .builder-option {
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    padding: 0.5rem 0.75rem !important;
+    gap: 0.85rem !important;
+    width: 100% !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .builder-option-img {
+    width: 68px !important;
+    height: 68px !important;
+    border-radius: var(--radius-sm) !important;
+    flex-shrink: 0 !important;
+  }
+  .builder-option-body {
+    padding: 0 !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+  .builder-option-label {
+    font-size: 0.9rem !important;
+  }
+  .builder-option-badge {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    right: 0.85rem !important;
+  }
+}

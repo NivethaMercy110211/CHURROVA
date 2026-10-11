@@ -1,0 +1,340 @@
+/* ============================================================
+   CHURROVA — Footer
+   ============================================================ */
+
+.site-footer {
+  background: var(--cocoa);
+  color: rgba(255,248,237,.7);
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+[data-theme="dark"] .site-footer {
+  background: #0F0C09;
+}
+
+/* ── Footer Grid ─────────────────────────────────────────── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  column-gap: clamp(2rem, 4vw, 3.5rem);
+  row-gap: 2rem;
+  padding-bottom: clamp(2rem, 3vw, 2.75rem);
+  align-items: start;
+}
+
+/* Brand column */
+.footer-brand .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+  text-decoration: none;
+}
+
+.footer-logo-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1;
+}
+
+.footer-logo-icon {
+  width: 42px; height: 42px;
+  background: transparent;
+  border-radius: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.footer-logo-icon svg { width: 24px; height: 24px; fill: white; }
+
+.footer-logo-icon .theme-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  display: block;
+  margin-top: 0.35rem;
+  line-height: 1;
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  max-width: 32ch;
+  color: rgba(255,248,237,.6);
+}
+
+/* Social */
+.footer-social {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.social-btn {
+  width: 38px; height: 38px;
+  border: 1px solid rgba(255,248,237,.2);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,248,237,.6);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.social-btn:hover {
+  background: var(--caramel);
+  border-color: var(--caramel);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.social-btn svg { width: 17px; height: 17px; }
+
+/* Footer columns */
+.footer-col-title {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  font-size: 0.87rem;
+  color: rgba(255,248,237,.6);
+  text-decoration: none;
+  transition: color var(--transition), padding-left var(--transition);
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--cream);
+  padding-left: 4px;
+}
+
+/* Opening hours */
+.hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hours-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: rgba(255,248,237,.6);
+}
+
+.hours-item .day { color: rgba(255,248,237,.85); font-weight: 600; }
+
+.footer-hours-links li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+/* The final footer column owns the schedule; avoid repeating it below Company. */
+.footer-grid > div:nth-child(3) > .footer-col-title[style],
+.footer-grid > div:nth-child(3) > .hours-list {
+  display: none;
+}
+
+/* ── Footer Divider ──────────────────────────────────────── */
+.footer-bottom {
+  border-top: 1px solid rgba(255,248,237,.1);
+  padding: 1.15rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: rgba(255,248,237,.4);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-legal a {
+  font-size: 0.8rem;
+  color: rgba(255,248,237,.4);
+  transition: color var(--transition);
+}
+.footer-legal a:hover { color: rgba(255,248,237,.75); }
+
+/* ── Newsletter ──────────────────────────────────────────── */
+.newsletter-wrap {
+  background: rgba(255,248,237,.06);
+  border: 1px solid rgba(255,248,237,.12);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.newsletter-title {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 0.25rem;
+}
+
+.newsletter-sub {
+  font-size: 0.78rem;
+  color: rgba(255,248,237,.55);
+  margin-bottom: 0.85rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,248,237,.2);
+  border-radius: var(--radius-pill);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.83rem;
+  min-width: 0;
+}
+
+.newsletter-form input::placeholder { color: rgba(255,248,237,.4); }
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--caramel);
+}
+
+.newsletter-form button {
+  background: var(--caramel);
+  border: none;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--transition);
+  flex-shrink: 0;
+}
+.newsletter-form button:hover { background: var(--caramel-dark); }
+
+.footer-newsletter-column .newsletter-wrap {
+  margin-top: 0.9rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+}
+
+.footer-newsletter-column .newsletter-title {
+  margin-bottom: 0.55rem;
+  font-size: 0.8rem;
+}
+
+.footer-newsletter-column .newsletter-sub {
+  display: none;
+}
+
+.footer-newsletter-column .newsletter-form {
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-newsletter-column .newsletter-form input,
+.footer-newsletter-column .newsletter-form button {
+  padding: 0.5rem 0.7rem;
+}
+
+.footer-newsletter-column .newsletter-form button {
+  width: 100%;
+}
+
+/* Light footer palette; dark mode retains the original cocoa styling. */
+html:not([data-theme="dark"]) .site-footer {
+  background: #F6EBDD;
+  color: var(--text-body);
+  border-top: 1px solid rgba(92,50,32,.12);
+}
+
+html:not([data-theme="dark"]) .footer-brand-name,
+html:not([data-theme="dark"]) .footer-col-title {
+  color: var(--text-heading);
+}
+
+html:not([data-theme="dark"]) .footer-brand p,
+html:not([data-theme="dark"]) .footer-links a,
+html:not([data-theme="dark"]) .hours-item,
+html:not([data-theme="dark"]) .newsletter-sub {
+  color: var(--text-muted);
+}
+
+html:not([data-theme="dark"]) .hours-item .day,
+html:not([data-theme="dark"]) .newsletter-title {
+  color: var(--text-heading);
+}
+
+html:not([data-theme="dark"]) .social-btn {
+  color: var(--cocoa);
+  border-color: rgba(92,50,32,.2);
+}
+
+html:not([data-theme="dark"]) .newsletter-wrap {
+  background: rgba(255,255,255,.55);
+  border-color: rgba(92,50,32,.14);
+}
+
+html:not([data-theme="dark"]) .newsletter-form input {
+  color: var(--text-heading);
+  background: #FFFDFC;
+  border-color: rgba(92,50,32,.2);
+}
+
+html:not([data-theme="dark"]) .newsletter-form input::placeholder {
+  color: var(--text-muted);
+}
+
+html:not([data-theme="dark"]) .footer-bottom {
+  border-top-color: rgba(92,50,32,.12);
+}
+
+html:not([data-theme="dark"]) .footer-copyright,
+html:not([data-theme="dark"]) .footer-legal a {
+  color: var(--text-muted);
+}

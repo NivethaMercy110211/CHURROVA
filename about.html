@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About CHURROVA — Our story, artisan churro craftsmanship, flavor philosophy, and obsession with freshly fried golden perfection.">
+  <title>Our Story &amp; Craft – CHURROVA Churro &amp; Fried Dessert Co.</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/rtl.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6zm-1 3v2.28A5.01 5.01 0 0 0 11 16a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5.01 5.01 0 0 0-4-4.9V9h-2zm1 4a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3z"/></svg>
+      </div>
+      <div class="logo-text">
+        <span class="brand-name">CHURROVA</span>
+            <span class="brand-sub">Twist. Dip. Delight.</span>
+      </div>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="home2.html">Home 2</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="flavors.html">Flavors</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="locations.html">Locations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle dark/light mode">
+        <span data-theme-icon><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <button class="icon-btn" data-action="toggle-rtl" aria-label="Toggle RTL">
+        <span data-rtl-label style="font-size:0.72rem;font-weight:700;">RTL</span>
+      </button>
+        <a href="signature-flavors.html" class="btn-header-cta">Signature Flavors</a>
+      <button class="mobile-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-overlay" aria-hidden="true"></div>
+<nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-header">
+    <span class="brand-name" style="font-family:var(--font-display);font-size:1.2rem;color:var(--text-heading);">CHURROVA</span>
+    <button class="drawer-close" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="drawer-nav">
+    <a href="index.html">Home</a>
+    <a href="home2.html">Home 2</a>
+    <a href="about.html" class="active">About</a>
+    <a href="menu.html">Menu</a>
+    <a href="flavors.html">Flavors</a>
+    <a href="events.html">Events</a>
+    <a href="locations.html">Locations</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="drawer-controls">
+    <button class="icon-btn" data-action="toggle-theme" style="flex:1;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;"><span data-theme-icon style="display:flex;align-items:center;gap:0.4rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark</span></button>
+    <button class="icon-btn" data-action="toggle-rtl" style="flex:1;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:700;"><span data-rtl-label>RTL</span></button>
+  </div>
+  <div class="drawer-cta">
+    <a href="menu.html" class="btn btn-primary" style="width:100%;justify-content:center;">View Menu</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-label="About page hero">
+  <div class="page-hero-bg">
+    <img src="assets/images/cta/about.png" alt="Artisan churro preparation at CHURROVA dessert bar" loading="eager">
+  </div>
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <span class="section-label" style="color:#E6A461;">Our Story &amp; Craft</span>
+    <h1 class="page-hero-title">Dough, Fire &amp; Devotion</h1>
+    <p class="page-hero-lead">We set out to reinvent the traditional churro bar for the modern dessert lover: honoring historic Spanish star-die extrusions, elevating ingredients to Michelin-grade quality, and serving every single order blisteringly hot.</p>
+  </div>
+</section>
+
+<!-- SECTION 01: OUR STORY -->
+<section class="section-py" aria-labelledby="story-title">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <span class="section-label">Born in 2021</span>
+        <h2 id="story-title" style="margin-bottom:1.25rem;">The Churro Obsession</h2>
+        <p class="lead" style="margin-bottom:1.5rem;">CHURROVA was born from an uncompromising realization: most churros served outside traditional Spanish chocolaterías were pale, frozen, limp imitations of what should be one of the culinary world's greatest sensory triumphs.</p>
+        <p style="margin-bottom:1.5rem;color:var(--text-body);">A proper churro is a study in thermal and textural contrast: an intensely crisp, deeply golden ridged shell dusted in fragrant cinnamon sugar, yielding to an airy, tender, custard-like interior — ready to plunge into bittersweet molten ganache.</p>
+        <p style="color:var(--text-body);">We spent 18 months refining our scalding choux dough ratio, testing dozens of flours from regenerative UK and European mills, and designing custom star extruders that maximize surface crispness while retaining a cloud-soft center.</p>
+      </div>
+
+      <div class="col-lg-6 reveal delay-1">
+        <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);aspect-ratio:4/3;">
+          <img src="assets/images/pages/page-sugar-craft.png" alt="CHURROVA artisan tossing freshly fried churros in cinnamon sugar blend" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 02: THE GOLDEN CRUNCH (INFOGRAPHIC STATS) -->
+<section class="section-py" style="background:var(--bg2);" aria-labelledby="craft-stats-title">
+  <div class="container">
+    <div class="text-center" style="max-width:700px;margin:0 auto 3rem;">
+      <span class="section-label">Culinary Anatomy</span>
+      <h2 id="craft-stats-title" class="reveal">The Anatomy of the Golden Crunch</h2>
+      <p class="lead reveal delay-1" style="margin:0 auto;">Precision in technique is why every bite sounds as good as it tastes.</p>
+    </div>
+
+    <div class="row g-4 text-center anatomy-grid">
+      <div class="col-md-3 col-6">
+        <div class="anatomy-card" style="background:var(--card-bg);border:1.5px solid var(--border-color);border-radius:var(--radius-lg);padding:2.25rem 1.25rem;height:100%;">
+          <div style="font-family:var(--font-display);font-size:2.8rem;color:var(--accent);line-height:1;margin-bottom:0.5rem;">190°C</div>
+          <h3 style="font-size:1rem;color:var(--text-heading);margin-bottom:0.5rem;">Flash Fry Temp</h3>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Stable heat locks in steam for a crisp, micro-blistered exterior.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="anatomy-card" style="background:var(--card-bg);border:1.5px solid var(--border-color);border-radius:var(--radius-lg);padding:2.25rem 1.25rem;height:100%;">
+          <div style="font-family:var(--font-display);font-size:2.8rem;color:var(--accent);line-height:1;margin-bottom:0.5rem;">8-Star</div>
+          <h3 style="font-size:1rem;color:var(--text-heading);margin-bottom:0.5rem;">Custom Die Rig</h3>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Eight ridges create more surface area for cinnamon sugar and smooth dips.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="anatomy-card" style="background:var(--card-bg);border:1.5px solid var(--border-color);border-radius:var(--radius-lg);padding:2.25rem 1.25rem;height:100%;">
+          <div style="font-family:var(--font-display);font-size:2.8rem;color:var(--accent);line-height:1;margin-bottom:0.5rem;">3 Min</div>
+          <h3 style="font-size:1rem;color:var(--text-heading);margin-bottom:0.5rem;">Fryer to Hand</h3>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Every churro is served within three minutes of leaving the fryer.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="anatomy-card" style="background:var(--card-bg);border:1.5px solid var(--border-color);border-radius:var(--radius-lg);padding:2.25rem 1.25rem;height:100%;">
+          <div style="font-family:var(--font-display);font-size:2.8rem;color:var(--accent);line-height:1;margin-bottom:0.5rem;">70%</div>
+          <h3 style="font-size:1rem;color:var(--text-heading);margin-bottom:0.5rem;">Single-Origin Dip</h3>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Dark Venezuelan cacao balances the warmth of our brown-sugar dough.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03: FLAVOR PHILOSOPHY -->
+<section class="section-py" aria-labelledby="philosophy-title">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 order-lg-2 reveal">
+        <span class="section-label">Restrained Sweetness</span>
+        <h2 id="philosophy-title" style="margin-bottom:1.25rem;">Our Flavor Philosophy</h2>
+        <p class="lead" style="margin-bottom:1.5rem;">We deliberately reject the cloying, synthetic sweetness prevalent in industrial fast food. Street desserts deserve nuance.</p>
+        
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:36px;height:36px;background:rgba(200,121,50,.12);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <strong style="color:var(--text-heading);font-size:0.95rem;">Unsalted Cultured Butter &amp; Sea Salt Balance</strong>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem;">Every caramel and pastry cream features Cornish sea salt flakes to cut richness and highlight butteriness.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:36px;height:36px;background:rgba(200,121,50,.12);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <div>
+              <strong style="color:var(--text-heading);font-size:0.95rem;">Direct-Trade Spice Roots</strong>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem;">Our signature dusting uses wild harvested Korintje cinnamon blended with subtle green cardamom and coarse Demerara crystals.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:36px;height:36px;background:rgba(200,121,50,.12);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+            </div>
+            <div>
+              <strong style="color:var(--text-heading);font-size:0.95rem;">Warmth, Freshness &amp; Joy</strong>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem;">Dessert should evoke communal delight — from spontaneous late-night walks to celebratory festival milestones.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 order-lg-1 reveal delay-1">
+        <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);aspect-ratio:4/3;">
+          <img src="assets/images/pages/page-chocolate-filled.png" alt="CHURROVA chocolate filled churros oozing rich molten ganache" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 04: MEET THE ARTISANS -->
+<section class="section-py" style="background:var(--bg2);" aria-labelledby="team-title">
+  <div class="container">
+    <div class="text-center" style="max-width:700px;margin:0 auto 3.5rem;">
+      <span class="section-label">Culinary Leadership</span>
+      <h2 id="team-title" class="reveal">The Artisans Behind the Fryer</h2>
+      <p class="lead reveal delay-1" style="margin:0 auto;">Our team blends classical French pastry discipline with vibrant Madrid street-food energy.</p>
+    </div>
+
+    <div class="row g-4 team-grid">
+      <div class="col-md-4">
+        <div style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;height:100%;transition:transform var(--transition);box-shadow:var(--shadow-sm);" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="aspect-ratio:4/3;background:linear-gradient(135deg, #C87932, #9E5724);position:relative;overflow:hidden;">
+            <img src="assets/images/pages/chef-marco.jpg" alt="Mateo Ruiz - Co-Founder &amp; Master Churrero" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="padding:1.5rem;">
+            <span style="font-size:0.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">Co-Founder &amp; Master Churrero</span>
+            <h3 style="font-size:1.2rem;margin:0.25rem 0 0.5rem;color:var(--text-heading);">Mateo Ruiz</h3>
+            <p class="team-description" style="font-size:0.83rem;color:var(--text-muted);line-height:1.6;margin:0;">Third-generation pastry artisan from Seville. Mateo spent his youth mastering choux dough elasticity before launching London's first modern churro bar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;height:100%;transition:transform var(--transition);box-shadow:var(--shadow-sm);" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="aspect-ratio:4/3;background:linear-gradient(135deg, #38251C, #C87932);position:relative;overflow:hidden;">
+            <img src="assets/images/pages/chef-camille.jpg" alt="Elena Vance - Head of Flavor &amp; Pastry" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="padding:1.5rem;">
+            <span style="font-size:0.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">Head of Flavor &amp; Pastry</span>
+            <h3 style="font-size:1.2rem;margin:0.25rem 0 0.5rem;color:var(--text-heading);">Elena Vance</h3>
+            <p class="team-description" style="font-size:0.83rem;color:var(--text-muted);line-height:1.6;margin:0;">Former Michelin-starred pastry chef Elena crafts our dulce de leche, seasonal fruit reductions and single-origin chocolate ganache.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;height:100%;transition:transform var(--transition);box-shadow:var(--shadow-sm);" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="aspect-ratio:4/3;background:linear-gradient(135deg, #9E5724, #38251C);position:relative;overflow:hidden;">
+            <img src="assets/images/events/private-vip.jpg" alt="Julian Moreno - Director of Experiences" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="padding:1.5rem;">
+            <span style="font-size:0.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;">Director of Festivals &amp; Events</span>
+            <h3 style="font-size:1.2rem;margin:0.25rem 0 0.5rem;color:var(--text-heading);">Julian Moreno</h3>
+            <p class="team-description" style="font-size:0.83rem;color:var(--text-muted);line-height:1.6;margin:0;">Veteran event producer overseeing our mobile carts and festival pop-ups, bringing seamless theatrical catering to weddings and public fairs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 05: OUR QUALITY PROMISE -->
+<section class="section-py" aria-labelledby="promise-title">
+  <div class="container">
+    <div style="background:var(--card-bg);border:2px solid var(--border-color);border-radius:var(--radius-xl);padding:clamp(2rem, 5vw, 4rem);box-shadow:var(--shadow-md);">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <span class="section-label">The CHURROVA Standard</span>
+          <h2 id="promise-title" style="margin-bottom:1rem;">Our Six-Point Quality Commitment</h2>
+          <p style="color:var(--text-muted);margin-bottom:1.5rem;">Every batch we fry adheres strictly to our founding manifesto:</p>
+          <div class="row g-3 quality-grid">
+            <div class="col-sm-6">
+              <div style="display:flex;gap:0.75rem;align-items:center;">
+                <span style="color:#27AE60;font-weight:bold;">✓</span>
+                <span style="font-size:0.88rem;color:var(--text-heading);font-weight:600;">100% Non-GMO Wheat Flour</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="display:flex;gap:0.75rem;align-items:center;">
+                <span style="color:#27AE60;font-weight:bold;">✓</span>
+                <span style="font-size:0.88rem;color:var(--text-heading);font-weight:600;">Zero Trans Fats &amp; Fresh High-Oleic Oil</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="display:flex;gap:0.75rem;align-items:center;">
+                <span style="color:#27AE60;font-weight:bold;">✓</span>
+                <span style="font-size:0.88rem;color:var(--text-heading);font-weight:600;">Fried Fresh on Order (Never Pre-Held)</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="display:flex;gap:0.75rem;align-items:center;">
+                <span style="color:#27AE60;font-weight:bold;">✓</span>
+                <span style="font-size:0.88rem;color:var(--text-heading);font-weight:600;">Vegetarian &amp; Dairy-Free Dough Base</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div style="display:flex;gap:0.75rem;align-items:center;">
+                <span style="color:#27AE60;font-weight:bold;">✓</span>
+                <span style="font-size:0.88rem;color:var(--text-heading);font-weight:600;">Real Fairtrade Cocoa &amp; Madagascar Vanilla</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="quality-item quality-item-long" style="display:flex;gap:0.75rem;align-items:center;">
+                <span style="color:#27AE60;font-weight:bold;">✓</span>
+                <span style="font-size:0.88rem;color:var(--text-heading);font-weight:600;">Compostable Cones &amp; FSC-Certified Packaging</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center">
+          <div style="display:inline-flex;flex-direction:column;align-items:center;background:var(--bg2);border:1px dashed var(--border-color);border-radius:var(--radius-lg);padding:2rem;">
+            <div style="font-size:3rem;margin-bottom:0.5rem;">🌟</div>
+            <div style="font-family:var(--font-display);font-size:1.3rem;color:var(--text-heading);">Golden Guarantee</div>
+            <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.3rem;">If your churros aren't blistering hot and crisp, we will fry you a fresh batch instantly. No questions asked.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 06: FINAL CTA -->
+<section class="cta-gradient" style="--cta-image:url('../assets/images/hero/hero-about.jpg');" aria-labelledby="about-cta-title">
+  <div class="container text-center">
+    <span class="section-label" style="color:#E6A461;">Taste the Difference</span>
+    <h2 id="about-cta-title" class="reveal" style="color:var(--cream);margin-bottom:1rem;">Ready for the Ultimate Churro Experience?</h2>
+    <p class="lead reveal delay-1" style="margin:0 auto 2rem;color:rgba(255,248,237,.75);">Drop into our flagship bar today or book our mobile cart for your next major celebration.</p>
+    <div class="btn-group reveal delay-2" style="justify-content:center;">
+      <a href="locations.html" class="btn btn-primary btn-lg">Find a Location</a>
+      <a href="menu.html" class="btn btn-ghost btn-lg">Explore Full Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <div class="footer-logo-icon">
+            <svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6zm-1 3v2.28A5.01 5.01 0 0 0 11 16a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5.01 5.01 0 0 0-4-4.9V9h-2zm1 4a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3z"/></svg>
+          </div>
+          <div>
+            <div class="footer-brand-name">CHURROVA</div>
+            <span class="footer-tagline">Twist. Dip. Delight.</span>
+          </div>
+        </a>
+        <p>Freshly fried artisan churros, dipping sauces and memorable festival dessert experiences.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="social-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+        </div>
+        <div class="newsletter-wrap">
+          <div class="newsletter-title">Sweet updates in your inbox</div>
+          <div class="newsletter-sub">New flavors, seasonal specials and events.</div>
+          <form class="newsletter-form" novalidate><input type="email" placeholder="Your email" aria-label="Email"><button type="submit">Subscribe</button></form>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Menu</div>
+        <ul class="footer-links">
+          <li><a href="menu.html">Classic Churros</a></li>
+          <li><a href="menu.html">Filled Churros</a></li>
+          <li><a href="menu.html">Churro Bites</a></li>
+          <li><a href="menu.html">Churro Sundaes</a></li>
+          <li><a href="menu.html">Signature Dips</a></li>
+          <li><a href="menu.html">Sharing Boxes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="flavors.html">Signature Flavors</a></li>
+          <li><a href="events.html">Events &amp; Festivals</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Opening Hours</div>
+        <div class="hours-list">
+          <div class="hours-item"><span class="day">Mon–Fri</span><span>11am–10pm</span></div>
+          <div class="hours-item"><span class="day">Sat</span><span>10am–11pm</span></div>
+          <div class="hours-item"><span class="day">Sun</span><span>10am–9pm</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 CHURROVA Churro &amp; Fried Dessert Co. All rights reserved.</p>
+      <nav class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Allergens</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

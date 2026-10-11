@@ -1,0 +1,122 @@
+/* ============================================================
+   CHURROVA — RTL Support
+   ============================================================ */
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .header-inner {
+  direction: rtl;
+}
+
+[dir="rtl"] .nav-list { flex-direction: row-reverse; }
+
+[dir="rtl"] .nav-list a::after {
+  transform-origin: right;
+}
+
+[dir="rtl"] .btn-group { flex-direction: row-reverse; }
+
+[dir="rtl"] .hero-content { text-align: right; }
+[dir="rtl"] .hero-title { margin-left: auto; margin-right: 0; }
+
+[dir="rtl"] .hero-floating-label {
+  right: auto;
+  left: 5%;
+}
+
+[dir="rtl"] .hero-floating-label .flavor-tag {
+  flex-direction: row-reverse;
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-links a {
+  padding-left: 0;
+}
+[dir="rtl"] .footer-links a:hover {
+  padding-left: 0;
+  padding-right: 4px;
+}
+
+[dir="rtl"] .footer-grid { direction: rtl; }
+
+[dir="rtl"] .drawer-nav { direction: rtl; }
+[dir="rtl"] .drawer-nav a { flex-direction: row-reverse; }
+[dir="rtl"] .drawer-nav a:hover {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+
+[dir="rtl"] .mobile-drawer {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+[dir="rtl"] .mobile-drawer.open { transform: translateX(0); }
+
+[dir="rtl"] .form-row { direction: rtl; }
+
+/* Phone values keep their natural number order but align with the RTL form. */
+[dir="rtl"] input[type="tel"] {
+  direction: ltr;
+  text-align: right;
+}
+
+/* Let the native date control mirror its text and calendar affordance. */
+[dir="rtl"] input[type="date"] {
+  direction: ltr;
+  text-align: right;
+  padding-left: 3rem;
+  padding-right: 1rem;
+  position: relative;
+}
+
+[dir="rtl"] input[type="date"]::-webkit-datetime-edit {
+  text-align: right;
+}
+
+[dir="rtl"] input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 1rem;
+  right: auto;
+}
+
+/* English validation copy remains readable while aligning to the RTL edge. */
+[dir="rtl"] .form-error {
+  direction: ltr;
+  text-align: right;
+}
+
+[dir="rtl"] .search-icon { left: auto; right: 1rem; }
+[dir="rtl"] .search-field input { padding: 0.75rem 3rem 0.75rem 1rem; }
+
+[dir="rtl"] .section-label { text-align: right; }
+
+/* Override the alternating LTR showcase helper when the whole page is RTL. */
+[dir="rtl"] .flavor-showcase-content {
+  direction: rtl !important;
+}
+
+[dir="rtl"] .flavor-rail { direction: rtl; }
+
+[dir="rtl"] .menu-card-footer { flex-direction: row-reverse; }
+
+[dir="rtl"] .contact-info-item { flex-direction: row-reverse; text-align: right; }
+
+[dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+[dir="rtl"] .footer-copyright { text-align: right; }
+
+[dir="rtl"] .hours-item { flex-direction: row-reverse; }
+
+[dir="rtl"] .form-check { flex-direction: row-reverse; }
+
+[dir="rtl"] .badge-caramel,
+[dir="rtl"] .badge-new { direction: rtl; }
+
+[dir="rtl"] .btn svg {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .btn:hover svg {
+  transform: scaleX(-1) translateX(3px);
+}

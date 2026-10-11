@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Log in to your CHURROVA account."><title>Login | CHURROVA</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>">
+  <link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/header.css"><link rel="stylesheet" href="css/buttons.css"><link rel="stylesheet" href="css/forms.css"><link rel="stylesheet" href="css/auth.css"><link rel="stylesheet" href="css/tablet.css"><link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner">
+    <a href="index.html" class="site-logo" aria-label="CHURROVA Home"><div class="logo-icon"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6z"/></svg></div><div class="logo-text"><span class="brand-name">CHURROVA</span><span class="brand-sub">Churro &amp; Fried Dessert Co.</span></div></a>
+    <nav class="main-nav" aria-label="Main navigation"><ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="home2.html">Home 2</a></li><li><a href="about.html">About</a></li><li><a href="menu.html">Menu</a></li><li><a href="flavors.html">Flavors</a></li><li><a href="events.html">Events</a></li><li><a href="locations.html">Locations</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+<div class="header-actions"><a href="signature-flavors.html" class="btn-header-cta">Signature Flavors</a><button class="mobile-toggle" aria-label="Open menu"><span></span><span></span><span></span></button></div>
+  </div></header>
+  <div class="drawer-overlay"></div><nav class="mobile-drawer" aria-label="Mobile navigation"><div class="drawer-header"><a href="index.html" class="site-logo"><div class="logo-icon"><svg viewBox="0 0 32 32"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6z"/></svg></div><div class="logo-text"><span class="brand-name">CHURROVA</span></div></a><button class="drawer-close" aria-label="Close menu">×</button></div><div class="drawer-nav"><a href="index.html">Home</a><a href="home2.html">Home 2</a><a href="about.html">About</a><a href="menu.html">Menu</a><a href="flavors.html">Flavors</a><a href="events.html">Events</a><a href="locations.html">Locations</a><a href="contact.html">Contact</a><a href="signup.html">Create Account</a></div></nav>
+  <main class="auth-page"><div class="container"><div class="auth-shell">
+    <aside class="auth-aside"><span class="section-label" style="color:#FFD39A;">Welcome Back</span><h1>Your next golden moment awaits.</h1><p>Sign in to save favorites, manage event inquiries and receive first access to seasonal flavors.</p><div class="auth-points"><div class="auth-point"><span>✓</span> Save favorite flavors</div><div class="auth-point"><span>✓</span> Track event inquiries</div><div class="auth-point"><span>✓</span> Get member-only updates</div></div></aside>
+    <section class="auth-card" aria-labelledby="login-title"><h2 id="login-title">Log in</h2><p class="auth-intro">Enter your account details below.</p>
+      <form data-auth-form novalidate>
+        <div class="form-group"><label class="form-label" for="login-email">Email Address <span class="required">*</span></label><input class="form-control" id="login-email" type="email" autocomplete="email" required placeholder="you@example.com"><div class="form-error">Enter a valid email address.</div></div>
+        <div class="form-group"><label class="form-label" for="login-password">Password <span class="required">*</span></label><div class="password-field"><input class="form-control" id="login-password" type="password" autocomplete="current-password" minlength="8" required placeholder="Minimum 8 characters"><button type="button" class="password-toggle" data-password-toggle="login-password" aria-label="Show password">Show</button></div><div class="form-error">Enter at least 8 characters.</div></div>
+        <div class="auth-row"><label class="form-check"><input type="checkbox"><span class="form-check-label">Remember me</span></label><a href="contact.html">Forgot password?</a></div>
+        <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" type="submit">Log In</button><div class="auth-message success" role="status">Login form validated successfully.</div>
+      </form><p class="auth-switch">New to CHURROVA? <a href="signup.html">Create an account</a></p>
+    </section>
+  </div></div></main>
+  <script src="js/main.js"></script><script src="js/auth.js"></script>
+</body></html>

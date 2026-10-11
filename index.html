@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="CHURROVA – Freshly fried churros, irresistible fillings and signature dips made for every sweet craving. Twist. Dip. Delight.">
+  <meta name="keywords" content="churros, fried desserts, churro shop, filled churros, dipping sauces, desserts">
+  <meta property="og:title" content="CHURROVA – Churro & Fried Dessert Co.">
+  <meta property="og:description"
+    content="Golden. Crispy. Impossible to Resist. Freshly fried churros made for every sweet craving.">
+  <meta property="og:type" content="website">
+  <title>CHURROVA – Churro & Fried Dessert Co. | Twist. Dip. Delight.</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <style>
+    /* ── Page-specific extras ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      min-height: 84px;
+      padding: 0.8rem 0.45rem;
+      background: rgba(20, 13, 9, 0.76);
+      border: 1px solid rgba(240, 192, 128, 0.32);
+      border-radius: var(--radius-md);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(7px);
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 3vw, 2.5rem);
+      color: #F0B36E;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255, 248, 237, 0.88);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .bestsellers-layout {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .bestseller-main {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .bestseller-main-img {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .bestseller-main-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .bestseller-main:hover .bestseller-main-img img {
+      transform: scale(1.04);
+    }
+
+    .bestseller-main-body {
+      padding: 2rem;
+    }
+
+    .bestsellers-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      height: 100%;
+    }
+
+    .bestseller-mini {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      display: grid;
+      grid-template-columns: minmax(110px, 28%) minmax(0, 1fr);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+      flex: 1 1 0;
+      min-height: 0;
+    }
+
+    .bestseller-mini:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .bestseller-mini-img {
+      overflow: hidden;
+      background: var(--sand);
+      min-height: 100%;
+    }
+
+    .bestseller-mini-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bestseller-mini-body {
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .pairing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .pairing-card {
+      background: var(--bg2);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 0.75rem;
+      text-align: center;
+      cursor: default;
+      transition: all var(--transition);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .pairing-card-img {
+      width: 100%;
+      height: 120px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--sand);
+      margin-bottom: 0.65rem;
+    }
+
+    .pairing-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .pairing-card:hover .pairing-card-img img {
+      transform: scale(1.08);
+    }
+
+    .pairing-card-name {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-heading);
+    }
+
+    .bestseller-mini-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--text-heading);
+      margin-bottom: 0.2rem;
+    }
+
+    .bestseller-mini-price {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .dip-explorer {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+    }
+
+    .dip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .dip-card {
+      text-align: center;
+      padding: 1.25rem 0.75rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all var(--transition);
+      background: var(--bg);
+    }
+
+    .dip-card:hover,
+    [data-dip-id].pairing-active {
+      border-color: var(--accent);
+      background: rgba(200, 121, 50, .07);
+    }
+
+    .dip-card-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--sand);
+      margin: 0 auto 0.6rem;
+      overflow: hidden;
+      border: 2px solid var(--border-color);
+    }
+
+    .dip-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .dip-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .preparation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .prep-step {
+      text-align: center;
+      padding: 1.75rem 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .prep-step:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .prep-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .prep-num {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.1em;
+    }
+
+    .prep-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--text-heading);
+      margin-bottom: 0.35rem;
+    }
+
+    .box-builder {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .box-preview {
+      background-image: linear-gradient(rgba(27, 21, 17, .72), rgba(27, 21, 17, .82)), url('assets/images/pages/page-takeaway-cone.png');
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255, 248, 237, .3);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .box-preview>div:not(.box-item-chip) {
+      color: rgba(255, 248, 237, .92) !important;
+      background: rgba(27, 21, 17, .58);
+      border: 1px solid rgba(255, 248, 237, .18);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .box-item-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: rgba(255, 248, 237, .94);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      padding: 0.5rem 1rem;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: #38251C;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-10px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0)
+      }
+    }
+
+    .box-select-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .box-option {
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      background: var(--bg);
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .box-option:hover {
+      border-color: var(--accent);
+      background: rgba(200, 121, 50, .07);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 220px);
+      gap: 1rem;
+      grid-auto-flow: dense;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-item.tall,
+    .gallery-item.wide {
+      grid-row: auto;
+      grid-column: auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-quote {
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.7;
+      flex: 1;
+      max-width: none;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .testimonial-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--caramel), var(--caramel-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--white);
+      flex-shrink: 0;
+      object-fit: cover;
+      object-position: center;
+      border: 2px solid rgba(200, 121, 50, .35);
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-heading);
+    }
+
+    .testimonial-product {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    @media(max-width:1024px) {
+      .bestsellers-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .bestsellers-side {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        height: auto;
+      }
+
+      .bestseller-mini {
+        flex: none;
+      }
+
+      .preparation-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .box-builder {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+
+      .gallery-item.tall,
+      .gallery-item.wide {
+        grid-row: auto;
+        grid-column: auto;
+      }
+
+      .gallery-item {
+        aspect-ratio: 4/3;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.65rem;
+        margin-top: 1.5rem;
+      }
+
+      .stat-item {
+        min-height: 76px;
+        padding: 0.7rem 0.35rem;
+      }
+
+      .pairing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .dip-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .dip-grid > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: calc((100% - 1rem) / 2);
+        box-sizing: border-box;
+        justify-self: center;
+      }
+    }
+
+    @media(max-width:600px) {
+      .bestsellers-side {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dip-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pairing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── What's Fresh Strip ─────────────────────── -->
+  <div id="fresh-strip">
+    <div class="strip-inner container">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.82 0 .48-.35 1.25-2.1 1.25-1.61 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z" />
+      </svg>
+      <strong>Today's Special:</strong> Salted Caramel Churros — Limited quantities, get yours fresh today!
+    </div>
+    <button class="strip-close" aria-label="Close announcement">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── Header ─────────────────────────────────── -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="CHURROVA Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6zm-1 3v2.28A5.01 5.01 0 0 0 11 16a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5.01 5.01 0 0 0-4-4.9V9h-2zm1 4a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3z" />
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">CHURROVA</span>
+          <span class="brand-sub">Churro &amp; Fried Dessert Co.</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list" role="list">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="home2.html">Home 2</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="flavors.html">Flavors</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle dark/light mode">
+          <span data-theme-icon>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </span>
+        </button>
+        <button class="icon-btn" data-action="toggle-rtl" aria-label="Toggle RTL/LTR text direction"
+          title="Toggle RTL/LTR">
+          <span data-rtl-label style="font-size:0.72rem;font-weight:700;letter-spacing:0.05em;">RTL</span>
+        </button>
+        <a href="signature-flavors.html" class="btn-header-cta">Signature Flavors</a>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="drawer-overlay" aria-hidden="true"></div>
+
+  <!-- Mobile Drawer -->
+  <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="site-logo">
+        <div class="logo-icon" style="width:36px;height:36px;">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6zm-1 3v2.28A5.01 5.01 0 0 0 11 16a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5.01 5.01 0 0 0-4-4.9V9h-2zm1 4a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3z" />
+          </svg>
+        </div>
+        <span class="brand-name"
+          style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-heading);">CHURROVA</span>
+      </a>
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="drawer-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="home2.html">Home 2</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="flavors.html">Flavors</a>
+      <a href="events.html">Events</a>
+      <a href="locations.html">Locations</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="drawer-controls">
+      <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle dark/light mode"
+        style="flex:1;border-radius:var(--radius-sm);">
+        <span data-theme-icon
+          style="display:flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;white-space:nowrap;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          Dark Mode
+        </span>
+      </button>
+      <button class="icon-btn" data-action="toggle-rtl"
+        style="flex:1;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:700;">
+        <span data-rtl-label>RTL</span>
+      </button>
+    </div>
+    <div class="drawer-cta">
+      <a href="menu.html" class="btn btn-primary">Explore Our Menu
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- HERO                                                    -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-bg">
+      <img src="assets/images/hero/hero-home1.jpg" alt="Freshly fried churros with chocolate dipping sauce"
+        loading="eager" fetchpriority="high">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div style="max-width:680px;">
+        <span class="hero-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+          Freshly Made Daily
+        </span>
+        <h1 class="hero-title">Golden. Crispy. <em>Impossible to Resist.</em></h1>
+        <p class="hero-lead">Freshly fried churros, irresistible fillings and signature dips made for every sweet
+          craving. Experience the twist that changes everything.</p>
+        <div class="hero-btns">
+          <a href="flavors.html" class="btn btn-primary btn-lg">
+            Explore Our Flavors
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="locations.html" class="btn btn-ghost btn-lg">Find Your Nearest Shop</a>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-item">
+            <span class="stat-num">12+</span>
+            <span class="stat-label">Signature Flavors</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">4.9</span>
+            <span class="stat-label">Average Rating</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">50K+</span>
+            <span class="stat-label">Happy Customers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">Daily</span>
+            <span class="stat-label">Freshly Fried</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-floating-label">
+      <div class="flavor-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+        Today's Special: Salted Caramel Twist
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 01. THE FLAVOR LINEUP                                   -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py bg-surface" aria-labelledby="flavor-lineup-title">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4" style="margin-bottom:2rem;">
+        <div>
+          <span class="section-label">01 — Flavor Lineup</span>
+          <h2 id="flavor-lineup-title" class="section-title reveal">Discover Your Perfect Twist</h2>
+        </div>
+      </div>
+    </div>
+    <div class="flavor-rail-wrapper">
+      <div class="flavor-rail" role="list">
+        <div class="flavor-card reveal" role="listitem">
+          <div class="flavor-card-img" style="background:linear-gradient(135deg,#C87932,#F0C080);">
+            <img src="assets/images/menu/classic-churro.jpg" alt="Classic Cinnamon Sugar Churro" loading="lazy">
+          </div>
+          <div class="flavor-card-body">
+            <div class="flavor-card-name">Classic Cinnamon Sugar</div>
+            <div class="flavor-card-desc">The iconic golden churro — crisp exterior, warm cinnamon-sugar finish.</div>
+            <span class="flavor-card-tag">From £3.99</span>
+          </div>
+        </div>
+        <div class="flavor-card reveal delay-1" role="listitem">
+          <div class="flavor-card-img" style="background:linear-gradient(135deg,#38251C,#6B3A2A);">
+            <img src="assets/images/menu/choc-filled.jpg" alt="Chocolate Filled Churro" loading="lazy">
+          </div>
+          <div class="flavor-card-body">
+            <div class="flavor-card-name">Chocolate Filled</div>
+            <div class="flavor-card-desc">Rich dark chocolate ganache center in a crispy cinnamon shell.</div>
+            <span class="flavor-card-tag">From £4.99</span>
+          </div>
+        </div>
+        <div class="flavor-card reveal delay-2" role="listitem">
+          <div class="flavor-card-img" style="background:linear-gradient(135deg,#C87932,#E6A461);">
+            <img src="assets/images/menu/caramel-twist.jpg" alt="Salted Caramel Twist" loading="lazy">
+          </div>
+          <div class="flavor-card-body">
+            <div class="flavor-card-name">Salted Caramel Twist</div>
+            <div class="flavor-card-desc">Flowing salted caramel drizzle with flaked sea salt on golden churro.</div>
+            <span class="flavor-card-tag">From £4.49</span>
+          </div>
+        </div>
+        <div class="flavor-card reveal delay-3" role="listitem">
+          <div class="flavor-card-img" style="background:linear-gradient(135deg,#D4A0C8,#F8C8E0);">
+            <img src="assets/images/menu/strawberry-cream.jpg" alt="Strawberry Cream Churro" loading="lazy">
+          </div>
+          <div class="flavor-card-body">
+            <div class="flavor-card-name">Strawberry Cream</div>
+            <div class="flavor-card-desc">Luscious strawberry cream filling dusted with pink sugar crystals.</div>
+            <span class="flavor-card-tag">From £4.99</span>
+          </div>
+        </div>
+        <div class="flavor-card reveal delay-4" role="listitem">
+          <div class="flavor-card-img" style="background:linear-gradient(135deg,#F5F5F5,#E8D5B7);">
+            <img src="assets/images/menu/vanilla-custard.jpg" alt="Vanilla Custard Churro" loading="lazy">
+          </div>
+          <div class="flavor-card-body">
+            <div class="flavor-card-name">Vanilla Custard</div>
+            <div class="flavor-card-desc">Silky vanilla custard filling layered inside a crisp, sugar-dusted golden churro shell.</div>
+            <span class="flavor-card-tag">From £4.99</span>
+          </div>
+        </div>
+        <div class="flavor-card reveal" role="listitem">
+          <div class="flavor-card-img" style="background:linear-gradient(135deg,#2D2D2D,#6B4226);">
+            <img src="assets/images/menu/cookies-cream.jpg" alt="Cookies and Cream Churro" loading="lazy">
+          </div>
+          <div class="flavor-card-body">
+            <div class="flavor-card-name">Cookies &amp; Cream</div>
+            <div class="flavor-card-desc">Crushed cookie crumbles and cream filling in a chocolate-dusted shell.</div>
+            <span class="flavor-card-tag">From £4.99</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 02. OUR BESTSELLERS                                     -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py" aria-labelledby="bestsellers-title">
+    <div class="container">
+      <span class="section-label">02 — Bestsellers</span>
+      <h2 id="bestsellers-title" class="section-title reveal">What Everyone's Ordering</h2>
+      <p class="section-intro lead reveal delay-1">Our most-loved churros — each one made fresh to order, every single
+        day.</p>
+
+      <div class="bestsellers-layout reveal">
+        <div class="bestseller-main">
+          <div class="bestseller-main-img">
+            <img src="assets/images/menu/classic-churro.jpg" alt="Classic Cinnamon Sugar Churros — Our #1 bestseller"
+              loading="lazy">
+          </div>
+          <div class="bestseller-main-body">
+            <span class="badge-new">Bestseller #1</span>
+            <h3 style="margin-top:0.75rem;margin-bottom:0.5rem;">Classic Cinnamon Sugar Churros</h3>
+            <p style="color:var(--text-muted);margin-bottom:1.25rem;">A portion of five freshly fried churros,
+              generously coated in our house cinnamon-sugar blend. Served with your choice of dipping sauce.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+              <span style="font-family:var(--font-display);font-size:1.8rem;color:var(--accent);">£4.99</span>
+              <a href="menu.html" class="btn btn-primary">View on Menu</a>
+            </div>
+          </div>
+        </div>
+        <div class="bestsellers-side">
+          <div class="bestseller-mini">
+            <div class="bestseller-mini-img">
+              <img src="assets/images/menu/choc-filled.jpg" alt="Chocolate Filled Churros" loading="lazy">
+            </div>
+            <div class="bestseller-mini-body">
+              <span class="badge-new" style="margin-bottom:0.35rem;">Top Seller</span>
+              <div class="bestseller-mini-name">Chocolate Filled Churros</div>
+              <div class="bestseller-mini-price">From £4.99</div>
+            </div>
+          </div>
+          <div class="bestseller-mini">
+            <div class="bestseller-mini-img">
+              <img src="assets/images/menu/caramel-twist.jpg" alt="Salted Caramel Twist" loading="lazy">
+            </div>
+            <div class="bestseller-mini-body">
+              <span class="tag-seasonal" style="margin-bottom:0.35rem;display:inline-block;">Popular</span>
+              <div class="bestseller-mini-name">Salted Caramel Twist</div>
+              <div class="bestseller-mini-price">From £4.49</div>
+            </div>
+          </div>
+          <div class="bestseller-mini">
+            <div class="bestseller-mini-img">
+              <img src="assets/images/menu/churro-bites.jpg" alt="Churro Bites" loading="lazy">
+            </div>
+            <div class="bestseller-mini-body">
+              <div class="bestseller-mini-name">Churro Bites Box</div>
+              <div class="bestseller-mini-price">From £5.49</div>
+            </div>
+          </div>
+          <div class="bestseller-mini">
+            <div class="bestseller-mini-img">
+              <img src="assets/images/menu/churro-sundae.jpg" alt="Churro Sundae" loading="lazy">
+            </div>
+            <div class="bestseller-mini-body">
+              <div class="bestseller-mini-name">Churro Sundae</div>
+              <div class="bestseller-mini-price">From £6.99</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 03. THE PERFECT DIP                                     -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py bg-surface" aria-labelledby="dip-explorer-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="section-label">03 — Dip Pairing Explorer</span>
+        <h2 id="dip-explorer-title" class="section-title reveal">Find Your Perfect Dip</h2>
+        <p class="lead reveal delay-1" style="margin:0 auto;">Select a dipping sauce below to discover which churros it
+          pairs with best.</p>
+      </div>
+
+      <div class="dip-explorer reveal">
+        <div class="dip-grid">
+          <div class="dip-card" data-dip-id="chocolate" role="button" tabindex="0" aria-label="Dark Chocolate sauce">
+            <div class="dip-card-img">
+              <img src="assets/images/menu/dip-dark-chocolate.jpg" alt="Dark Chocolate Dip" loading="lazy">
+            </div>
+            <div class="dip-name">Dark Chocolate</div>
+          </div>
+          <div class="dip-card" data-dip-id="caramel" role="button" tabindex="0" aria-label="Salted Caramel sauce">
+            <div class="dip-card-img">
+              <img src="assets/images/menu/dip-salted-caramel.jpg" alt="Salted Caramel Dip" loading="lazy">
+            </div>
+            <div class="dip-name">Salted Caramel</div>
+          </div>
+          <div class="dip-card" data-dip-id="strawberry" role="button" tabindex="0" aria-label="Strawberry sauce">
+            <div class="dip-card-img">
+              <img src="assets/images/menu/dip-strawberry-coulis.jpg" alt="Strawberry Coulis Dip" loading="lazy">
+            </div>
+            <div class="dip-name">Strawberry</div>
+          </div>
+          <div class="dip-card" data-dip-id="white-chocolate" role="button" tabindex="0"
+            aria-label="White Chocolate sauce">
+            <div class="dip-card-img">
+              <img src="assets/images/menu/dip-white-chocolate.jpg" alt="White Chocolate Dip" loading="lazy">
+            </div>
+            <div class="dip-name">White Chocolate</div>
+          </div>
+          <div class="dip-card" data-dip-id="nutella" role="button" tabindex="0" aria-label="Nutella sauce">
+            <div class="dip-card-img">
+              <img src="assets/images/menu/dip-nutella.jpg" alt="Nutella Drizzle Dip" loading="lazy">
+            </div>
+            <div class="dip-name">Nutella Drizzle</div>
+          </div>
+        </div>
+
+        <p style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-bottom:1.5rem;">
+          Click a sauce to see matching churros highlighted below
+        </p>
+
+        <div class="pairing-grid">
+          <div data-churro-id="classic-cinnamon" class="pairing-card">
+            <div class="pairing-card-img">
+              <img src="assets/images/menu/classic-churro.jpg" alt="Classic Cinnamon Sugar Churros" loading="lazy">
+            </div>
+            <div class="pairing-card-name">Classic Cinnamon</div>
+          </div>
+          <div data-churro-id="chocolate-filled" class="pairing-card">
+            <div class="pairing-card-img">
+              <img src="assets/images/menu/choc-filled.jpg" alt="Dark Chocolate Ganache Filled Churro" loading="lazy">
+            </div>
+            <div class="pairing-card-name">Chocolate Filled</div>
+          </div>
+          <div data-churro-id="caramel-twist" class="pairing-card">
+            <div class="pairing-card-img">
+              <img src="assets/images/menu/caramel-twist.jpg" alt="Salted Caramel Twist Churro" loading="lazy">
+            </div>
+            <div class="pairing-card-name">Caramel Twist</div>
+          </div>
+          <div data-churro-id="strawberry-cream" class="pairing-card">
+            <div class="pairing-card-img">
+              <img src="assets/images/menu/strawberry-cream.jpg" alt="Strawberry Cream Filled Churro" loading="lazy">
+            </div>
+            <div class="pairing-card-name">Strawberry Cream</div>
+          </div>
+          <div data-churro-id="vanilla-custard" class="pairing-card">
+            <div class="pairing-card-img">
+              <img src="assets/images/menu/vanilla-custard.jpg" alt="Vanilla Custard Filled Churro" loading="lazy">
+            </div>
+            <div class="pairing-card-name">Vanilla Custard</div>
+          </div>
+          <div data-churro-id="churro-bites" class="pairing-card">
+            <div class="pairing-card-img">
+              <img src="assets/images/menu/churro-bites.jpg" alt="Churro Bites Platter" loading="lazy">
+            </div>
+            <div class="pairing-card-name">Churro Bites</div>
+          </div>
+          <div data-churro-id="cookies-cream" class="pairing-card">
+            <div class="pairing-card-img">
+              <img src="assets/images/menu/cookies-cream.jpg" alt="Cookies &amp; Cream Churro" loading="lazy">
+            </div>
+            <div class="pairing-card-name">Cookies &amp; Cream</div>
+          </div>
+          <div data-churro-id="pistachio" class="pairing-card">
+            <div class="pairing-card-img">
+              <img src="assets/images/menu/pistachio-cream.jpg" alt="Pistachio Cream Churro" loading="lazy">
+            </div>
+            <div class="pairing-card-name">Pistachio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 04. FRESH FROM THE FRYER                               -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py" aria-labelledby="prep-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="section-label">04 — Fresh From the Fryer</span>
+        <h2 id="prep-title" class="section-title reveal">Made With Care, Every Time</h2>
+        <p class="lead reveal delay-1" style="margin:0 auto;">Every churro begins with our signature batter — fried
+          fresh to order and finished by hand.</p>
+      </div>
+      <div class="preparation-grid">
+        <div class="prep-step reveal">
+          <div class="prep-icon">🌾</div>
+          <div class="prep-num">Step 01</div>
+          <div class="prep-title">Premium Ingredients</div>
+          <p style="font-size:0.83rem;color:var(--text-muted);max-width:none;line-height:1.6;">We source quality flour,
+            eggs and cinnamon for a batter that fries up perfectly crispy every time.</p>
+        </div>
+        <div class="prep-step reveal delay-1">
+          <div class="prep-icon">🔥</div>
+          <div class="prep-num">Step 02</div>
+          <div class="prep-title">Fresh Frying</div>
+          <p style="font-size:0.83rem;color:var(--text-muted);max-width:none;line-height:1.6;">Each churro is piped and
+            fried to golden perfection in clean oil at precise temperature.</p>
+        </div>
+        <div class="prep-step reveal delay-2">
+          <div class="prep-icon">✨</div>
+          <div class="prep-num">Step 03</div>
+          <div class="prep-title">Hand Finished</div>
+          <p style="font-size:0.83rem;color:var(--text-muted);max-width:none;line-height:1.6;">Tossed in our house
+            cinnamon-sugar blend or filled with your chosen flavoring — always by hand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 05. BUILD YOUR CHURRO BOX                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py bg-surface" aria-labelledby="box-builder-title">
+    <div class="container">
+      <span class="section-label">05 — Build Your Box</span>
+      <h2 id="box-builder-title" class="section-title reveal">Create Your Perfect Box</h2>
+      <p class="section-intro lead reveal delay-1">Mix and match your favourite churros, bites and dips. Visit us or
+        enquire to order a custom sharing box.</p>
+
+      <div class="box-builder">
+        <div>
+          <h4 style="margin-bottom:1rem;">Choose your churros:</h4>
+          <div class="box-select-grid">
+            <div class="box-option" data-item="Classic Cinnamon ×5" role="button" tabindex="0" onclick="addToBox(this)">
+              <span>🥐</span> Classic Cinnamon ×5
+            </div>
+            <div class="box-option" data-item="Chocolate Filled ×3" role="button" tabindex="0" onclick="addToBox(this)">
+              <span>🍫</span> Chocolate Filled ×3
+            </div>
+            <div class="box-option" data-item="Caramel Twist ×2" role="button" tabindex="0" onclick="addToBox(this)">
+              <span>🍯</span> Caramel Twist ×2
+            </div>
+            <div class="box-option" data-item="Churro Bites Bowl" role="button" tabindex="0" onclick="addToBox(this)">
+              <span>🍡</span> Churro Bites Bowl
+            </div>
+            <div class="box-option" data-item="Strawberry Cream ×2" role="button" tabindex="0" onclick="addToBox(this)">
+              <span>🍓</span> Strawberry Cream ×2
+            </div>
+            <div class="box-option" data-item="Dipping Sauce Trio" role="button" tabindex="0" onclick="addToBox(this)">
+              <span>🥣</span> Dipping Sauce Trio
+            </div>
+          </div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:1rem;">
+            <em>This is a box preview only. Visit us in-store or contact us to enquire about custom sharing boxes for
+              events and groups.</em>
+          </p>
+        </div>
+        <div>
+          <h4 style="margin-bottom:1rem;">Your box preview:</h4>
+          <div class="box-preview" id="box-preview">
+            <div style="text-align:center;color:var(--text-muted);margin:auto;font-size:0.88rem;">
+              <div style="font-size:2rem;margin-bottom:0.5rem;">📦</div>
+              Click items on the left to add them to your box
+            </div>
+          </div>
+          <div style="margin-top:1.25rem;display:flex;gap:0.75rem;">
+            <button class="btn btn-secondary" onclick="clearBox()" style="flex:1;">Clear Box</button>
+            <a href="contact.html" class="btn btn-primary" style="flex:1;">Enquire About Box</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 06. SWEET MOMENTS GALLERY                               -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py" aria-labelledby="gallery-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <span class="section-label">06 — Sweet Moments</span>
+        <h2 id="gallery-title" class="section-title reveal">Life Tastes Better With Churros</h2>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item tall">
+          <img src="assets/images/pages/page-sugar-craft.png" alt="Artisan hand tossing warm churros in sugar"
+            loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/pages/page-chocolate-dip.png" alt="Dipping churro into dark chocolate ganache"
+            loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/pages/page-caramel-plate.png" alt="Crisp churros with salted caramel dip"
+            loading="lazy">
+        </div>
+        <div class="gallery-item wide">
+          <img src="assets/images/pages/page-sharing-bowl.png" alt="Celebration sharing bowl of hot cinnamon churros"
+            loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/pages/page-caramel-drizzle.png" alt="Salted caramel drizzle across fresh churros"
+            loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/pages/page-chocolate-filled.png" alt="Molten chocolate filled churros" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 07. FIND YOUR CHURRO SPOT                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py bg-surface" aria-labelledby="locations-preview-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="section-label">07 — Our Locations</span>
+        <h2 id="locations-preview-title" class="section-title reveal">Find Your CHURROVA</h2>
+        <p class="lead reveal delay-1" style="margin:0 auto;">Three welcoming locations, all frying fresh churros daily.
+          Find the one nearest you.</p>
+      </div>
+      <div class="locations-preview-grid"
+        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:2.5rem;">
+        <div class="reveal"
+          style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;">
+          <div style="height:180px;overflow:hidden;background:linear-gradient(135deg,#C87932,#F0C080);">
+            <img src="assets/images/hero/hero-locations.jpg" alt="CHURROVA Soho"
+              style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="padding:1.5rem;">
+            <h4 style="margin-bottom:0.5rem;">CHURROVA Soho</h4>
+            <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">12 Wardour Street, London W1D 6QA
+            </p>
+            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem;">
+              <strong>Mon–Fri:</strong> 11am–10pm &nbsp;|&nbsp; <strong>Sat–Sun:</strong> 10am–11pm
+            </div>
+            <a href="locations.html" class="btn btn-secondary btn-sm">Get Directions</a>
+          </div>
+        </div>
+        <div class="reveal delay-1"
+          style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;">
+          <div style="height:180px;overflow:hidden;background:linear-gradient(135deg,#38251C,#C87932);">
+            <img src="assets/images/hero/hero-contact.jpg" alt="CHURROVA Camden"
+              style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="padding:1.5rem;">
+            <h4 style="margin-bottom:0.5rem;">CHURROVA Camden</h4>
+            <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">87 Camden High Street, London NW1
+              7JN</p>
+            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem;">
+              <strong>Mon–Fri:</strong> 12pm–10pm &nbsp;|&nbsp; <strong>Sat–Sun:</strong> 11am–11pm
+            </div>
+            <a href="locations.html" class="btn btn-secondary btn-sm">Get Directions</a>
+          </div>
+        </div>
+        <div class="reveal delay-2"
+          style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;">
+          <div style="height:180px;overflow:hidden;background:linear-gradient(135deg,#5C3220,#C87932);">
+            <img src="assets/images/locations/location-1.png" alt="CHURROVA Shoreditch"
+              style="width:100%;height:100%;object-fit:cover;object-position:right;">
+          </div>
+          <div style="padding:1.5rem;">
+            <h4 style="margin-bottom:0.5rem;">CHURROVA Shoreditch</h4>
+            <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">34 Brick Lane, London E1 6RF</p>
+            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem;">
+              <strong>Mon–Fri:</strong> 12pm–11pm &nbsp;|&nbsp; <strong>Sat–Sun:</strong> 11am–12am
+            </div>
+            <a href="locations.html" class="btn btn-secondary btn-sm">Get Directions</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <a href="locations.html" class="btn btn-primary">View All Locations
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 08. FESTIVALS & CELEBRATIONS                            -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="cta-banner" aria-labelledby="events-cta-title">
+    <div class="cta-banner-bg">
+      <img src="assets/images/cta/home1.png" alt="Live churro station at an evening celebration" loading="lazy">
+    </div>
+    <div class="cta-banner-overlay"></div>
+    <div class="container">
+      <div class="cta-banner-content reveal">
+        <span class="section-label">08 — Events & Celebrations</span>
+        <h2 id="events-cta-title" class="cta-banner-title">Bring the Sweetest Part of the Party</h2>
+        <p class="cta-banner-text">From birthday parties to wedding receptions, corporate events to community fairs —
+          our live churro stations turn any occasion into a golden moment.</p>
+        <div class="btn-group">
+          <a href="events.html" class="btn btn-primary btn-lg">Explore Event Services</a>
+          <a href="events.html#event-enquiry" class="btn btn-ghost">Request Availability</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 09. CUSTOMER FAVORITES                                  -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="section-py" aria-labelledby="testimonials-title">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="section-label">09 — Customer Favorites</span>
+        <h2 id="testimonials-title" class="section-title reveal">What Our Customers Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">The chocolate filled churros are absolutely divine. I could eat them every day.
+            The cinnamon sugar coating is perfectly balanced — not too sweet, not too spicy.</p>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="assets/images/pages/sarah.png" alt="Sarah M." loading="lazy">
+            <div>
+              <div class="testimonial-name">Sarah M.</div>
+              <div class="testimonial-product">Chocolate Filled Churros</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal delay-1">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">We hired CHURROVA for our wedding and it was the highlight of the evening! The
+            live churro station was such a unique and memorable experience for all our guests.</p>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="assets/images/pages/James.jpg" alt="James and Laura T." loading="lazy">
+            <div>
+              <div class="testimonial-name">James & Laura T.</div>
+              <div class="testimonial-product">Wedding Event</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal delay-2">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">The salted caramel twist is genuinely one of the best desserts I've had in London.
+            Perfectly crispy, perfectly gooey. I always leave with at least two boxes.</p>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="assets/images/pages/priya.png" alt="Priya K." loading="lazy">
+            <div>
+              <div class="testimonial-name">Priya K.</div>
+              <div class="testimonial-product">Salted Caramel Twist</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 10. FINAL CTA                                           -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="cta-gradient" style="--cta-image:url('../assets/images/cta/home1-cta.png');"
+    aria-labelledby="final-cta-title">
+    <div class="container text-center">
+      <span class="section-label" style="color:#E6A461;justify-content:center;display:flex;">Ready to Indulge?</span>
+      <h2 id="final-cta-title" class="cta-title reveal" style="color:var(--cream);margin-bottom:1rem;">Your Golden
+        Moment Awaits</h2>
+      <p class="cta-lead lead reveal delay-1">Browse our full menu, find your nearest shop, or enquire about a churro
+        station for your next event.</p>
+      <div class="btn-group reveal delay-2" style="justify-content:center;">
+        <a href="menu.html" class="btn btn-primary btn-lg">Browse the Full Menu</a>
+        <a href="locations.html" class="btn btn-ghost btn-lg">Find a Location</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- FOOTER                                                  -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6zm-1 3v2.28A5.01 5.01 0 0 0 11 16a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5.01 5.01 0 0 0-4-4.9V9h-2zm1 4a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3z" />
+              </svg>
+            </div>
+            <div>
+              <div class="footer-brand-name">CHURROVA</div>
+              <span class="footer-tagline">Twist. Dip. Delight.</span>
+            </div>
+          </a>
+          <p>London's favourite freshly fried churro bar. Made with quality ingredients, served with passion. Every bite
+            is golden.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+          </div>
+          <div class="newsletter-wrap">
+            <div class="newsletter-title">Sweet updates in your inbox</div>
+            <div class="newsletter-sub">New flavors, seasonal specials and event news.</div>
+            <form class="newsletter-form" novalidate>
+              <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Menu</div>
+          <ul class="footer-links">
+            <li><a href="menu.html">Classic Churros</a></li>
+            <li><a href="menu.html">Filled Churros</a></li>
+            <li><a href="menu.html">Churro Bites</a></li>
+            <li><a href="menu.html">Churro Sundaes</a></li>
+            <li><a href="menu.html">Signature Dips</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="flavors.html">Signature Flavors</a></li>
+            <li><a href="events.html">Events &amp; Festivals</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+          <div class="footer-col-title" style="margin-top:1.5rem;">Opening Hours</div>
+          <div class="hours-list">
+            <div class="hours-item"><span class="day">Mon–Fri</span><span>11am – 10pm</span></div>
+            <div class="hours-item"><span class="day">Saturday</span><span>10am – 11pm</span></div>
+            <div class="hours-item"><span class="day">Sunday</span><span>10am – 9pm</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="tel:+442012345678">+44 (0)20 1234 5678</a></li>
+            <li><a href="mailto:hello@churrova.co.uk">hello@churrova.co.uk</a></li>
+            <li><a href="locations.html">12 Wardour St, London W1D</a></li>
+            <li><a href="contact.html">General Enquiries</a></li>
+            <li><a href="events.html">Event Enquiries</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 CHURROVA Churro &amp; Fried Dessert Co. All rights reserved.</p>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Allergen Info</a>
+          <a href="#">Cookies</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Box Builder
+    const boxPreview = document.getElementById('box-preview');
+    let boxItems = [];
+
+    function addToBox(el) {
+      const item = el.dataset.item;
+      if (boxItems.includes(item)) return;
+      boxItems.push(item);
+      renderBox();
+    }
+
+    function clearBox() {
+      boxItems = [];
+      renderBox();
+    }
+
+    function renderBox() {
+      if (boxItems.length === 0) {
+        boxPreview.innerHTML = `<div style="text-align:center;color:var(--text-muted);margin:auto;font-size:0.88rem;"><div style="font-size:2rem;margin-bottom:0.5rem;">📦</div>Click items on the left to add them to your box</div>`;
+        return;
+      }
+      boxPreview.innerHTML = boxItems.map(item =>
+        `<div class="box-item-chip"><span>✓</span>${item}</div>`
+      ).join('');
+    }
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
