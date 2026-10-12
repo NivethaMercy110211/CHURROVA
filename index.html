@@ -416,6 +416,50 @@
       gap: 1.5rem;
     }
 
+    .locations-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .location-preview-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .location-preview-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    .location-preview-address,
+    .location-preview-hours {
+      height: 3.4em;
+      flex: 0 0 3.4em;
+    }
+
+    .location-preview-body > .btn {
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .location-detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      color: var(--text-muted);
+    }
+
+    .location-detail-row svg {
+      width: 16px;
+      height: 16px;
+      margin-top: 0.08rem;
+      flex: 0 0 16px;
+      color: var(--caramel);
+    }
+
     .testimonial-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -442,8 +486,15 @@
       font-size: 0.9rem;
       color: var(--text-body);
       line-height: 1.7;
-      flex: 1;
-      max-width: none;
+      width: min(100%, 40ch);
+      height: 6.8em;
+      flex: 0 0 6.8em;
+      margin-inline: 0 auto;
+      text-wrap: balance;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
     }
 
     .testimonial-author {
@@ -497,7 +548,15 @@
       }
 
       .preparation-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .preparation-grid > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        width: calc(50% - 0.75rem);
+        max-width: none;
+        box-sizing: border-box;
+        justify-self: center;
       }
 
       .box-builder {
@@ -519,8 +578,18 @@
         aspect-ratio: 4/3;
       }
 
-      .testimonials-grid {
-        grid-template-columns: 1fr 1fr;
+      .testimonials-grid,
+      .locations-preview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .testimonials-grid > :last-child:nth-child(odd),
+      .locations-preview-grid > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        width: calc(50% - 0.75rem);
+        max-width: none;
+        box-sizing: border-box;
+        justify-self: center;
       }
 
       .stat-row {
@@ -564,6 +633,22 @@
         grid-template-columns: 1fr;
       }
 
+      .locations-preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid > :last-child:nth-child(odd) {
+        grid-column: auto;
+        width: 100%;
+        justify-self: stretch;
+      }
+
+      .locations-preview-grid > :last-child:nth-child(odd) {
+        grid-column: auto !important;
+        width: 100% !important;
+        justify-self: stretch !important;
+      }
+
       .dip-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -574,6 +659,14 @@
 
       .pairing-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media(max-width:900px) {
+      .testimonial-text {
+        height: 8.5em;
+        flex-basis: 8.5em;
+        -webkit-line-clamp: 5;
       }
     }
   </style>
@@ -611,7 +704,7 @@
         </div>
         <div class="logo-text">
           <span class="brand-name">CHURROVA</span>
-          <span class="brand-sub">Churro &amp; Fried Dessert Co.</span>
+          <span class="brand-sub">Twist. Dip. Delight.</span>
         </div>
       </a>
 
@@ -673,6 +766,7 @@
       <a href="about.html">About</a>
       <a href="menu.html">Menu</a>
       <a href="flavors.html">Flavors</a>
+      <a href="signature-flavors.html">Signature Flavors</a>
       <a href="events.html">Events</a>
       <a href="locations.html">Locations</a>
       <a href="contact.html">Contact</a>
@@ -694,7 +788,8 @@
         <span data-rtl-label>RTL</span>
       </button>
     </div>
-    <div class="drawer-cta">
+    <div class="drawer-cta" style="display:flex;flex-direction:column;gap:0.6rem;">
+      <a href="signature-flavors.html" class="btn btn-secondary" style="width:100%;justify-content:center;">Signature Flavors</a>
       <a href="menu.html" class="btn btn-primary">Explore Our Menu
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
@@ -1167,51 +1262,48 @@
         <p class="lead reveal delay-1" style="margin:0 auto;">Three welcoming locations, all frying fresh churros daily.
           Find the one nearest you.</p>
       </div>
-      <div class="locations-preview-grid"
-        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:2.5rem;">
-        <div class="reveal"
+      <div class="locations-preview-grid">
+        <div class="reveal location-preview-card"
           style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;">
           <div style="height:180px;overflow:hidden;background:linear-gradient(135deg,#C87932,#F0C080);">
             <img src="assets/images/hero/hero-locations.jpg" alt="CHURROVA Soho"
               style="width:100%;height:100%;object-fit:cover;">
           </div>
-          <div style="padding:1.5rem;">
+          <div class="location-preview-body" style="padding:1.5rem;">
             <h4 style="margin-bottom:0.5rem;">CHURROVA Soho</h4>
-            <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">12 Wardour Street, London W1D 6QA
-            </p>
-            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem;">
-              <strong>Mon–Fri:</strong> 11am–10pm &nbsp;|&nbsp; <strong>Sat–Sun:</strong> 10am–11pm
+            <p class="location-detail-row location-preview-address" style="font-size:0.83rem;margin-bottom:1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>12 Wardour Street, London W1D 6QA</span></p>
+            <div class="location-detail-row location-preview-hours" style="font-size:0.8rem;margin-bottom:1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>
+              <strong>Mon–Fri:</strong> 11am–10pm &nbsp;|&nbsp; <strong>Sat–Sun:</strong> 10am–11pm</span>
             </div>
             <a href="locations.html" class="btn btn-secondary btn-sm">Get Directions</a>
           </div>
         </div>
-        <div class="reveal delay-1"
+        <div class="reveal delay-1 location-preview-card"
           style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;">
           <div style="height:180px;overflow:hidden;background:linear-gradient(135deg,#38251C,#C87932);">
             <img src="assets/images/hero/hero-contact.jpg" alt="CHURROVA Camden"
               style="width:100%;height:100%;object-fit:cover;">
           </div>
-          <div style="padding:1.5rem;">
+          <div class="location-preview-body" style="padding:1.5rem;">
             <h4 style="margin-bottom:0.5rem;">CHURROVA Camden</h4>
-            <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">87 Camden High Street, London NW1
-              7JN</p>
-            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem;">
-              <strong>Mon–Fri:</strong> 12pm–10pm &nbsp;|&nbsp; <strong>Sat–Sun:</strong> 11am–11pm
+            <p class="location-detail-row location-preview-address" style="font-size:0.83rem;margin-bottom:1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>87 Camden High Street, London NW1 7JN</span></p>
+            <div class="location-detail-row location-preview-hours" style="font-size:0.8rem;margin-bottom:1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>
+              <strong>Mon–Fri:</strong> 12pm–10pm &nbsp;|&nbsp; <strong>Sat–Sun:</strong> 11am–11pm</span>
             </div>
             <a href="locations.html" class="btn btn-secondary btn-sm">Get Directions</a>
           </div>
         </div>
-        <div class="reveal delay-2"
+        <div class="reveal delay-2 location-preview-card"
           style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;">
           <div style="height:180px;overflow:hidden;background:linear-gradient(135deg,#5C3220,#C87932);">
             <img src="assets/images/locations/location-1.png" alt="CHURROVA Shoreditch"
               style="width:100%;height:100%;object-fit:cover;object-position:right;">
           </div>
-          <div style="padding:1.5rem;">
+          <div class="location-preview-body" style="padding:1.5rem;">
             <h4 style="margin-bottom:0.5rem;">CHURROVA Shoreditch</h4>
-            <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">34 Brick Lane, London E1 6RF</p>
-            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1rem;">
-              <strong>Mon–Fri:</strong> 12pm–11pm &nbsp;|&nbsp; <strong>Sat–Sun:</strong> 11am–12am
+            <p class="location-detail-row location-preview-address" style="font-size:0.83rem;margin-bottom:1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>34 Brick Lane, London E1 6RF</span></p>
+            <div class="location-detail-row location-preview-hours" style="font-size:0.8rem;margin-bottom:1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>
+              <strong>Mon–Fri:</strong> 12pm–11pm &nbsp;|&nbsp; <strong>Sat–Sun:</strong> 11am–12am</span>
             </div>
             <a href="locations.html" class="btn btn-secondary btn-sm">Get Directions</a>
           </div>
@@ -1364,14 +1456,6 @@
               </svg>
             </a>
           </div>
-          <div class="newsletter-wrap">
-            <div class="newsletter-title">Sweet updates in your inbox</div>
-            <div class="newsletter-sub">New flavors, seasonal specials and event news.</div>
-            <form class="newsletter-form" novalidate>
-              <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
-              <button type="submit">Subscribe</button>
-            </form>
-          </div>
         </div>
         <div>
           <div class="footer-col-title">Menu</div>
@@ -1401,12 +1485,12 @@
         </div>
         <div>
           <div class="footer-col-title">Contact</div>
-          <ul class="footer-links">
-            <li><a href="tel:+442012345678">+44 (0)20 1234 5678</a></li>
-            <li><a href="mailto:hello@churrova.co.uk">hello@churrova.co.uk</a></li>
-            <li><a href="locations.html">12 Wardour St, London W1D</a></li>
-            <li><a href="contact.html">General Enquiries</a></li>
-            <li><a href="events.html">Event Enquiries</a></li>
+          <ul class="footer-links footer-contact-links">
+            <li><a href="tel:+442012345678"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"/></svg><span>+44 (0)20 1234 5678</span></a></li>
+            <li><a href="mailto:hello@churrova.co.uk"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>hello@churrova.co.uk</span></a></li>
+            <li><a href="locations.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>12 Wardour St, W1D</span></a></li>
+            <li><a href="contact.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>General Enquiries</span></a></li>
+            <li><a href="events.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M3 9h18M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z"/><path d="M8 13h3v3H8z"/></svg><span>Event Enquiries</span></a></li>
           </ul>
         </div>
       </div>

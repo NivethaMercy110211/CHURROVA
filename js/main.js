@@ -212,6 +212,9 @@ const Drawer = (() => {
   function toggle() { isOpen ? close() : open(); }
 
   function init() {
+    // Keep Signature Flavors as the dedicated drawer CTA, not a duplicate menu item.
+    $$('.drawer-nav a[href="signature-flavors.html"]').forEach(link => link.remove());
+
     $('.mobile-toggle')?.addEventListener('click', toggle);
     $('.drawer-close')?.addEventListener('click', close);
     $('.drawer-overlay')?.addEventListener('click', close);
@@ -248,6 +251,7 @@ const Reveal = (() => {
       const grids = sec.querySelectorAll('.menu-grid, .event-types-grid, .packages-grid, .locations-grid, .gallery-grid, .testimonials-grid, .values-grid, .team-grid, .booking-steps, .prep-steps, .mood-grid, .filled-grid, .flavor-grid, .event-stat-grid, .builder-grid, .event-gallery-grid');
       grids.forEach(grid => {
         Array.from(grid.children).forEach((child, idx) => {
+          if (child.hasAttribute('data-no-reveal')) return;
           if (!child.classList.contains('reveal') && !child.classList.contains('reveal-left') && !child.classList.contains('reveal-right') && !child.classList.contains('reveal-scale')) {
             child.classList.add('reveal');
             const delayNum = (idx % 4) + 1;
@@ -593,10 +597,10 @@ const FlavorFinder = (() => {
     {
       q: "What's your flavor vibe?",
       options: [
-        { icon: '🍫', label: 'Chocolatey', key: 'choc' },
-        { icon: '🍯', label: 'Caramel', key: 'caramel' },
-        { icon: '🍓', label: 'Fruity', key: 'fruity' },
-        { icon: '✨', label: 'Classic', key: 'classic' },
+        { icon: '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="10" y="5" width="20" height="30" rx="3"/><path d="M10 15h20M10 25h20M20 5v30"/></svg>', label: 'Cocoa', key: 'choc' },
+        { icon: '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4S9 17 9 25a11 11 0 0 0 22 0C31 17 20 4 20 4Z"/><path d="M14 26c1.2 3.2 3.2 4.8 6 5"/></svg>', label: 'Caramel', key: 'caramel' },
+        { icon: '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 12c8-5 14 1 12 9-2 8-8 14-12 15-4-1-10-7-12-15-2-8 4-14 12-9Z"/><path d="M14 12c1-4 4-6 6-7 2 1 5 3 6 7M13 8c3 0 5 1 7 4M27 8c-3 0-5 1-7 4"/><path d="M15 20h.01M24 19h.01M20 27h.01"/></svg>', label: 'Fruity', key: 'fruity' },
+        { icon: '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="m17 4 2.6 8.4L28 15l-8.4 2.6L17 26l-2.6-8.4L6 15l8.4-2.6L17 4Z"/><path d="m30 23 1.5 4.5L36 29l-4.5 1.5L30 35l-1.5-4.5L24 29l4.5-1.5L30 23Z"/></svg>', label: 'Classic', key: 'classic' },
       ]
     },
     {
@@ -974,17 +978,6 @@ function initFooterSocials() {
   });
 }
 
-function initFooterLayout() {
-  const grid = $('.footer-grid');
-  const newsletter = grid?.querySelector('.newsletter-wrap');
-  const lastColumn = grid?.lastElementChild;
-  if (!newsletter || !lastColumn || newsletter.parentElement === lastColumn) return;
-  const title = newsletter.querySelector('.newsletter-title');
-  if (title) title.textContent = 'Sweet updates';
-  lastColumn.classList.add('footer-newsletter-column');
-  lastColumn.appendChild(newsletter);
-}
-
 // ── Dip Pairing Styles (injected) ────────────────────────────
 function injectDipStyles() {
   const style = document.createElement('style');
@@ -1012,8 +1005,53 @@ function injectDipStyles() {
   document.head.appendChild(style);
 }
 
+// ── Shared footer ─────────────────────────────────────────────
+function initSharedFooter() {
+  let footer = document.querySelector('.site-footer');
+  if (!footer) {
+    footer = document.createElement('footer');
+    footer.className = 'site-footer';
+    footer.setAttribute('role', 'contentinfo');
+    document.body.appendChild(footer);
+  }
+
+  footer.innerHTML = `
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <div class="footer-logo-icon"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10S21.52 26 16 26 6 21.52 6 16 10.48 6 16 6zm-1 3v2.28A5.01 5.01 0 0 0 11 16a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5.01 5.01 0 0 0-4-4.9V9h-2zm1 4a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3z"/></svg></div>
+            <div><div class="footer-brand-name">CHURROVA</div><span class="footer-tagline">Twist. Dip. Delight.</span></div>
+          </a>
+          <p>London's favourite freshly fried churro bar. Made with quality ingredients, served with passion. Every bite is golden.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="social-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          </div>
+        </div>
+        <div><div class="footer-col-title">Menu</div><ul class="footer-links"><li><a href="menu.html">Classic Churros</a></li><li><a href="menu.html">Filled Churros</a></li><li><a href="menu.html">Churro Bites</a></li><li><a href="menu.html">Churro Sundaes</a></li><li><a href="menu.html">Signature Dips</a></li></ul></div>
+        <div>
+          <div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">Our Story</a></li><li><a href="flavors.html">Signature Flavors</a></li><li><a href="events.html">Events &amp; Festivals</a></li><li><a href="locations.html">Locations</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+          <div class="footer-col-title" style="margin-top:1.5rem;">Opening Hours</div><div class="hours-list"><div class="hours-item"><span class="day">Mon–Fri</span><span>11am – 10pm</span></div><div class="hours-item"><span class="day">Saturday</span><span>10am – 11pm</span></div><div class="hours-item"><span class="day">Sunday</span><span>10am – 9pm</span></div></div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div><ul class="footer-links footer-contact-links">
+            <li><a href="tel:+442012345678"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"/></svg><span>+44 (0)20 1234 5678</span></a></li>
+            <li><a href="mailto:hello@churrova.co.uk"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>hello@churrova.co.uk</span></a></li>
+            <li><a href="locations.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>12 Wardour St, W1D</span></a></li>
+            <li><a href="contact.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>General Enquiries</span></a></li>
+            <li><a href="events.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M3 9h18M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z"/><path d="M8 13h3v3H8z"/></svg><span>Event Enquiries</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p class="footer-copyright">&copy; 2026 CHURROVA Churro &amp; Fried Dessert Co. All rights reserved.</p><nav class="footer-legal" aria-label="Legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Allergen Info</a><a href="#">Cookies</a></nav></div>
+    </div>`;
+}
+
 // ── Init ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  initSharedFooter();
   IconSystem.init();
   initBrandLockups();
   initThemeLogos();
@@ -1030,8 +1068,6 @@ document.addEventListener('DOMContentLoaded', () => {
   FlavorFinder.init();
   EventBuilder.init();
   EventForm.init();
-  initFooterLayout();
-  Newsletter.init();
   initSmoothScroll();
   initBackToTop();
   initLocationSearch();

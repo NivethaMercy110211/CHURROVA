@@ -217,7 +217,14 @@
 .package-tagline {
   font-size: 0.85rem;
   color: var(--text-muted);
+  line-height: 1.5;
+  height: 3em;
   margin-bottom: 1.25rem;
+  text-wrap: balance;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .package-guests {
@@ -535,23 +542,35 @@
   }
 
   .event-type-desc {
-    min-height: 6em;
-    display: block;
-    -webkit-box-orient: initial;
-    -webkit-line-clamp: unset;
-    overflow: visible;
+    width: min(100%, 34ch);
+    height: 4.5em;
+    min-height: 4.5em;
+    margin-inline: auto;
+    text-wrap: balance;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 
   .packages-grid {
-    grid-template-columns: minmax(0, 34rem);
-    justify-content: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .packages-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 0.75rem);
+    max-width: none;
+    box-sizing: border-box;
+    justify-self: center;
   }
 
   .booking-steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .booking-steps > :last-child:nth-child(odd) {
+  .booking-steps> :last-child:nth-child(odd) {
     grid-column: 1 / -1;
     width: calc(50% - 0.5rem);
     max-width: none;

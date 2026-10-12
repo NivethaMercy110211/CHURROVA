@@ -139,6 +139,24 @@
   padding-left: 4px;
 }
 
+.footer-contact-links a {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+.footer-contact-links svg {
+  width: 15px;
+  height: 15px;
+  margin-top: 0.12rem;
+  flex: 0 0 15px;
+  fill: none;
+  stroke: var(--caramel);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* Opening hours */
 .hours-list {
   display: flex;

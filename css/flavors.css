@@ -135,6 +135,8 @@
   overflow: hidden;
   cursor: pointer;
   transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
 .flavor-tile:hover {
@@ -161,6 +163,9 @@
 
 .flavor-tile-body {
   padding: 1.25rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .flavor-tile-name {
@@ -176,7 +181,27 @@
   font-size: 0.8rem;
   color: var(--text-muted);
   line-height: 1.5;
-  max-width: none;
+  width: min(100%, 28ch);
+  max-width: 28ch;
+  height: 3em;
+  margin-inline: 0 auto;
+  text-wrap: balance;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+  .flavor-pairings {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flavor-tile-desc {
+    height: 3em;
+    -webkit-line-clamp: 2;
+  }
 }
 
 /* Seasonal Banner */
@@ -247,7 +272,9 @@
 .finder-option {
   border: 2px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 1.25rem;
+  padding: 1.25rem 1rem;
+  min-width: 0;
+  box-sizing: border-box;
   text-align: center;
   cursor: pointer;
   transition: all var(--transition);
@@ -261,15 +288,37 @@
 }
 
 .finder-option-icon {
-  font-size: 2rem;
   margin-bottom: 0.5rem;
   display: block;
+  color: var(--caramel);
+  line-height: 0;
+}
+
+.finder-option-icon svg {
+  width: 36px;
+  height: 36px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .finder-option-name {
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--text-heading);
+}
+
+.pairing-chip svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .finder-progress {
@@ -299,6 +348,18 @@
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
   margin-top: 1.5rem;
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .flavor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .flavor-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc((100% - 1.5rem) / 2);
+    justify-self: center;
+  }
 }
 
 @media (max-width: 767px) {

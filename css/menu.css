@@ -3,6 +3,10 @@
    ============================================================ */
 
 /* ── Menu Header ─────────────────────────────────────────── */
+#menu-page-title {
+  margin-bottom: 1.5rem;
+}
+
 .menu-controls {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -275,6 +279,12 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+}
+
+.sundaes-grid .menu-card-desc {
+  width: min(100%, 42ch);
+  margin-inline: auto;
+  text-wrap: balance;
 }
 
 /* The wider two-column dip cards use a compact, equal two-line copy row. */

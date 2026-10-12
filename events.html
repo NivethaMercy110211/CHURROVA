@@ -73,6 +73,7 @@
     <a href="about.html">About</a>
     <a href="menu.html">Menu</a>
     <a href="flavors.html">Flavors</a>
+    <a href="signature-flavors.html">Signature Flavors</a>
     <a href="events.html" class="active">Events</a>
     <a href="locations.html">Locations</a>
     <a href="contact.html">Contact</a>
@@ -81,7 +82,8 @@
     <button class="icon-btn" data-action="toggle-theme" style="flex:1;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;"><span data-theme-icon style="display:flex;align-items:center;gap:0.4rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark</span></button>
     <button class="icon-btn" data-action="toggle-rtl" style="flex:1;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:700;"><span data-rtl-label>RTL</span></button>
   </div>
-  <div class="drawer-cta">
+  <div class="drawer-cta" style="display:flex;flex-direction:column;gap:0.6rem;">
+    <a href="signature-flavors.html" class="btn btn-secondary" style="width:100%;justify-content:center;">Signature Flavors</a>
     <a href="#event-enquiry" class="btn btn-primary" style="width:100%;justify-content:center;">Book an Event</a>
   </div>
 </nav>
@@ -96,10 +98,6 @@
     <span class="section-label" style="color:#E6A461;">Catering &amp; Celebrations</span>
     <h1 class="page-hero-title">Bring the Sweetest Part of the Party</h1>
     <p class="page-hero-lead">From bespoke wedding dessert carts and high-energy corporate celebrations to lively food festivals and private parties — our live churro station serves irresistible golden warmth right before your guests' eyes.</p>
-    <div class="btn-group" style="margin-top:1.5rem;justify-content:center;">
-      <a href="#event-builder" class="btn btn-primary">Build Your Experience</a>
-      <a href="#packages" class="btn btn-ghost">View Dessert Packages</a>
-    </div>
   </div>
 </section>
 
@@ -164,7 +162,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
           <h3 class="event-type-name">Weddings &amp; Receptions</h3>
-          <p class="event-type-desc">Elegant wooden cart service with personalized dipping bars, edible gold dust options, and late-night sweet bites that enchant guests.</p>
+          <p class="event-type-desc">Elegant wooden cart service with custom dipping bars, edible gold dust, and late-night sweet bites.</p>
         </div>
       </div>
 
@@ -429,7 +427,7 @@
         <div class="builder-grid">
           <div class="builder-option active" data-group="type" data-value="wedding">
             <div class="builder-option-img">
-              <img src="assets/images/events/wedding-reception.jpg" alt="Wedding Reception Churro Cart" loading="lazy">
+              <img src="assets/images/events/builder-wedding.jpg" alt="Wedding Reception Churro Cart" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -439,7 +437,7 @@
           </div>
           <div class="builder-option" data-group="type" data-value="corporate">
             <div class="builder-option-img">
-              <img src="assets/images/events/corporate-celebration.jpg" alt="Corporate Gala Churro Catering" loading="lazy">
+              <img src="assets/images/events/builder-corporate.jpg" alt="Corporate Gala Churro Catering" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -449,7 +447,7 @@
           </div>
           <div class="builder-option" data-group="type" data-value="birthday">
             <div class="builder-option-img">
-              <img src="assets/images/events/birthday-party.jpg" alt="Private Birthday Live Churro Station" loading="lazy">
+              <img src="assets/images/events/builder-birthday.jpg" alt="Private Birthday Live Churro Station" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -459,7 +457,7 @@
           </div>
           <div class="builder-option" data-group="type" data-value="festival">
             <div class="builder-option-img">
-              <img src="assets/images/events/food-festival.jpg" alt="Public Festival Street Food Pop-Up" loading="lazy">
+              <img src="assets/images/events/builder-festival.jpg" alt="Public Festival Street Food Pop-Up" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -469,7 +467,7 @@
           </div>
           <div class="builder-option" data-group="type" data-value="campus">
             <div class="builder-option-img">
-              <img src="assets/images/events/college-campus.jpg" alt="University Campus Event Churros" loading="lazy">
+              <img src="assets/images/events/builder-campus.jpg" alt="University Campus Event Churros" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -479,7 +477,7 @@
           </div>
           <div class="builder-option" data-group="type" data-value="popup">
             <div class="builder-option-img">
-              <img src="assets/images/events/popup-dessert-bar.jpg" alt="Brand Pop-Up Dessert Bar" loading="lazy">
+              <img src="assets/images/events/builder-popup.jpg" alt="Brand Pop-Up Dessert Bar" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -495,7 +493,7 @@
         <div class="builder-grid guest-count-grid">
           <div class="builder-option active" data-group="guests" data-value="30-50">
             <div class="builder-option-img">
-              <img src="assets/images/events/private-vip.jpg" alt="30 – 50 Guests Intimate Gathering" loading="lazy">
+              <img src="assets/images/events/builder-guests-intimate.jpg" alt="30 – 50 Guests Intimate Gathering" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -505,7 +503,7 @@
           </div>
           <div class="builder-option" data-group="guests" data-value="51-120">
             <div class="builder-option-img">
-              <img src="assets/images/events/community-fair.jpg" alt="51 – 120 Guests Mid-Sized Celebration" loading="lazy">
+              <img src="assets/images/events/builder-guests-medium.jpg" alt="51 – 120 Guests Mid-Sized Celebration" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -515,7 +513,7 @@
           </div>
           <div class="builder-option" data-group="guests" data-value="121-250">
             <div class="builder-option-img">
-              <img src="assets/images/pages/page-event-kiosk.png" alt="121 – 250 Guests Large Reception" loading="lazy">
+              <img src="assets/images/pages/120_guests.jpg" alt="121 – 250 Guests Large Reception" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -525,7 +523,7 @@
           </div>
           <div class="builder-option" data-group="guests" data-value="250+">
             <div class="builder-option-img">
-              <img src="assets/images/cta/events.jpg" alt="250+ Guests Festival & Gala" loading="lazy">
+              <img src="assets/images/events/community-fair.jpg" alt="250+ Guests Festival & Gala" loading="lazy">
             </div>
             <div class="builder-option-badge">&#10003;</div>
             <div class="builder-option-body">
@@ -791,11 +789,6 @@
         <div class="footer-social">
           <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a href="#" class="social-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
-        </div>
-        <div class="newsletter-wrap">
-          <div class="newsletter-title">Sweet updates in your inbox</div>
-          <div class="newsletter-sub">New flavors, seasonal specials and events.</div>
-          <form class="newsletter-form" novalidate><input type="email" placeholder="Your email" aria-label="Email"><button type="submit">Subscribe</button></form>
         </div>
       </div>
       <div>

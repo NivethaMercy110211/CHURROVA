@@ -10,6 +10,8 @@
   :root {
     --section-py: clamp(2.5rem, 8vw, 4rem);
     --container-px: 1.1rem;
+    --home-hero-height: 862px;
+    --home-header-offset: 64px;
   }
 
   /* Typography scale down */
@@ -27,11 +29,12 @@
 
   /* Hero */
   .hero {
-    min-height: 92vh;
+    min-height: var(--home-hero-height);
   }
 
   .hero-content {
-    padding-top: 5.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 5.5rem;
   }
 
   .hero-title {
@@ -60,6 +63,9 @@
   /* Hero split */
   .hero-split {
     grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, calc(var(--home-hero-height) - 280px)) 280px;
+    height: var(--home-hero-height);
+    min-height: var(--home-hero-height);
   }
 
   .hero-split-image {
@@ -231,7 +237,8 @@
   }
 
   .site-header {
-    padding: 0.8rem 0;
+    --site-header-block-padding: 0.8rem;
+    padding: var(--site-header-block-padding) 0;
     background: #FFF8ED;
     box-shadow: 0 4px 18px rgba(62, 36, 18, 0.12);
   }
@@ -263,7 +270,7 @@
 
   .logo-text .brand-sub {
     display: block;
-    margin-top: 0.2rem;
+    margin-top: 0.35rem;
     font-size: 0.5rem;
     letter-spacing: 0.1em;
   }
@@ -427,6 +434,13 @@
   .testimonials-grid,
   .signature-grid {
     grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body .team-grid > .col-md-4:last-child:nth-child(odd) {
+    grid-column: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    justify-self: stretch !important;
   }
 
   .menu-card-featured,

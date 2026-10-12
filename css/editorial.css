@@ -4,12 +4,14 @@
 
 /* ── Hero Base ────────────────────────────────────────────── */
 :root {
-  --home-hero-height: 100svh;
+  --home-hero-height: clamp(720px, 82svh, 900px);
+  --home-header-offset: 85px;
 }
 
 .hero {
   position: relative;
   min-height: var(--home-hero-height);
+  margin-top: var(--home-header-offset);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -52,8 +54,8 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  padding-top: 7rem;
-  padding-bottom: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 7rem;
 }
 
 /* Hero Text */
@@ -149,12 +151,13 @@
 /* ── Split Hero (Home 2) ────────────────────────────────── */
 .hero-split {
   min-height: var(--home-hero-height);
+  margin-top: var(--home-header-offset);
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .hero,
   .hero-split {
     height: var(--home-hero-height);
@@ -299,15 +302,25 @@
 .anatomy-card p {
   line-height: 1.55;
   height: 3.72rem;
+  width: min(100%, 34ch);
+  margin-inline: auto !important;
+  text-wrap: balance;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
 
+@media (min-width: 769px) and (max-width: 1100px) {
+  .anatomy-card p {
+    height: 2.48rem;
+    -webkit-line-clamp: 2;
+  }
+}
+
 .team-grid > [class*="col-"] > div > div:last-child {
   display: grid;
-  grid-template-rows: 2.4rem 1.8rem 4rem;
+  grid-template-rows: 2.4rem 1.8rem 5.25rem;
   align-content: start;
 }
 
@@ -326,11 +339,10 @@
 }
 
 .team-grid .team-description {
-  height: 4rem;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+  width: min(100%, 34ch);
+  height: 5.25rem;
+  text-wrap: balance;
+  overflow: visible;
 }
 
 @media (min-width: 992px) {

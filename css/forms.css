@@ -319,6 +319,28 @@ select.form-control {
 }
 .faq-icon svg { width: 14px; height: 14px; color: var(--text-body); }
 
+.store-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.store-detail-row svg {
+  width: 15px;
+  height: 15px;
+  margin-top: 0.08rem;
+  flex: 0 0 15px;
+  fill: none;
+  stroke: var(--caramel);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#contact-cards-title {
+  margin-bottom: 1.5rem;
+}
+
 .faq-item.open .faq-icon {
   background: var(--caramel);
   transform: rotate(45deg);
