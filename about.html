@@ -18,12 +18,12 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/desktop.css">
   <link rel="stylesheet" href="css/tablet.css">
-  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/mobile.css?v=3">
   <link rel="stylesheet" href="css/rtl.css">
   <style>
     @media (max-width: 600px) {
       .team-grid > .col-md-4:last-child {
-        grid-column: auto !important;
+        grid-column: 1 / -1 !important;
         width: 100% !important;
         max-width: none !important;
         justify-self: stretch !important;
@@ -71,7 +71,7 @@
         <button class="icon-btn" data-action="toggle-rtl" aria-label="Toggle RTL">
           <span data-rtl-label style="font-size:0.72rem;font-weight:700;">RTL</span>
         </button>
-        <a href="signature-flavors.html" class="btn-header-cta">Signature Flavors</a>
+        <a href="locations.html#store-locations" class="btn-header-cta">Find a Shop</a>
         <button class="mobile-toggle" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -108,7 +108,6 @@
           data-rtl-label>RTL</span></button>
     </div>
     <div class="drawer-cta">
-      <a href="menu.html" class="btn btn-primary" style="width:100%;justify-content:center;">View Menu</a>
     </div>
   </nav>
 
@@ -429,7 +428,53 @@
     </div>
   </section>
 
-  <!-- SECTION 06: FINAL CTA -->
+  <!-- SECTION 06: BEYOND THE COUNTER -->
+  <section class="section-py" style="background:var(--bg2);" aria-labelledby="impact-title">
+    <div class="container">
+      <div class="text-center" style="max-width:720px;margin:0 auto 3rem;">
+        <span class="section-label">Beyond the Counter</span>
+        <h2 id="impact-title" class="reveal">Small Choices, Sweeter Impact</h2>
+        <p class="lead reveal delay-1" style="margin:0 auto;">We want every CHURROVA visit to feel good—from the people we partner with to the packaging you carry home.</p>
+      </div>
+
+      <div class="about-impact-grid">
+        <article class="about-impact-card reveal">
+          <img class="about-impact-image" src="assets/images/pages/chef-priya.jpg" alt="Pastry chef presenting responsibly sourced spices" loading="lazy">
+          <div class="about-impact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22V8"/><path d="M5 12c4 0 7-3 7-7-4 0-7 3-7 7Z"/><path d="M19 15c-4 0-7-3-7-7 4 0 7 3 7 7Z"/>
+            </svg>
+          </div>
+          <h3>Thoughtful Sourcing</h3>
+          <p>We prioritize traceable cocoa, dependable local suppliers, and ingredients chosen for flavor as well as responsible production.</p>
+        </article>
+
+        <article class="about-impact-card reveal delay-1">
+          <img class="about-impact-image" src="assets/images/menu/coffee-bar.jpg" alt="Recyclable CHURROVA takeaway boxes at the counter" loading="lazy">
+          <div class="about-impact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/>
+            </svg>
+          </div>
+          <h3>Lower-Waste Service</h3>
+          <p>Fresh-to-order batches help us reduce food waste, while compostable packaging keeps takeaway moments lighter on the planet.</p>
+        </article>
+
+        <article class="about-impact-card reveal delay-2">
+          <img class="about-impact-image" src="assets/images/hero/hero-events.jpg" alt="CHURROVA mobile churro cart serving guests at a community celebration" loading="lazy">
+          <div class="about-impact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Community First</h3>
+          <p>We create welcoming counters, support neighborhood events, and bring our mobile churro carts to celebrations across London.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 07: FINAL CTA -->
   <section class="cta-gradient" style="--cta-image:url('../assets/images/hero/hero-about.jpg');"
     aria-labelledby="about-cta-title">
     <div class="container text-center">

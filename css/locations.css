@@ -372,7 +372,15 @@
 
 @media (max-width: 600px) {
   .location-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .location-grid > :last-child:nth-child(odd),
+  .map-locations-grid > .map-location-card:last-of-type {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    justify-self: stretch !important;
   }
 
   .location-search-bar {
@@ -380,7 +388,7 @@
   }
 
   .map-locations-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) !important;
     padding: 1.25rem;
   }
 

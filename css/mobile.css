@@ -432,15 +432,40 @@
   .box-select-grid,
   .gallery-grid,
   .testimonials-grid,
-  .signature-grid {
+  .signature-grid,
+  .team-grid {
     grid-template-columns: minmax(0, 1fr) !important;
   }
 
-  body .team-grid > .col-md-4:last-child:nth-child(odd) {
-    grid-column: auto !important;
+  body .team-grid > .col-md-4,
+  body .contact-options-grid > .col-md-4 {
+    grid-column: 1 / -1 !important;
     width: 100% !important;
     max-width: none !important;
     justify-self: stretch !important;
+  }
+
+  /* Let leadership-card copy use its natural height on narrow screens. */
+  .team-grid > [class*="col-"] > div > div:last-child {
+    grid-template-rows: auto;
+    gap: 0.35rem;
+  }
+
+  .team-grid > [class*="col-"] > div > div:last-child > span {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+
+  .team-grid > [class*="col-"] > div > div:last-child > h3 {
+    margin: 0.1rem 0 0.15rem !important;
+  }
+
+  .team-grid .team-description {
+    width: 100%;
+    height: auto;
+    text-wrap: pretty;
+    overflow: visible;
   }
 
   .menu-card-featured,

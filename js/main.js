@@ -161,9 +161,13 @@ const Header = (() => {
     const header = $('.site-header');
     if (!header) return;
 
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+
     $$('.btn-header-cta').forEach(link => {
-      link.href = 'signature-flavors.html';
-      link.textContent = 'Signature Flavors';
+      link.href = path === 'locations.html'
+        ? '#store-locations'
+        : 'locations.html#store-locations';
+      link.textContent = 'Find a Shop';
     });
 
     // Scroll effect
@@ -174,7 +178,6 @@ const Header = (() => {
     onScroll();
 
     // Active nav link
-    const path = window.location.pathname.split('/').pop() || 'index.html';
     $$('.nav-list a, .drawer-nav a').forEach(a => {
       const href = a.getAttribute('href');
       if (href && href === path) a.classList.add('active');

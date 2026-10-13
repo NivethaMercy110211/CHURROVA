@@ -58,6 +58,15 @@
   padding-bottom: 7rem;
 }
 
+/* Keep the tall desktop hero composition inside its own bounds. Without this,
+   flex centering can lift the eyebrow behind the fixed navigation. */
+@media (min-width: 1025px) {
+  .hero-content {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
 /* Hero Text */
 .hero-eyebrow {
   display: inline-flex;
@@ -343,6 +352,106 @@
   height: 5.25rem;
   text-wrap: balance;
   overflow: visible;
+}
+
+.quality-promise-copy {
+  text-align: center;
+}
+
+.quality-promise-copy > .section-label {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quality-grid > [class*="col-"] > div {
+  justify-content: center;
+}
+
+/* About page: community impact */
+.about-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.about-impact-card {
+  height: 100%;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  text-align: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.about-impact-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--caramel);
+  box-shadow: var(--shadow-md);
+}
+
+.about-impact-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 1.25rem;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.about-impact-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1rem;
+  display: grid;
+  place-items: center;
+  color: var(--caramel);
+  background: rgba(200, 121, 50, 0.12);
+  border-radius: 50%;
+}
+
+.about-impact-icon svg {
+  width: 1.65rem;
+  height: 1.65rem;
+}
+
+.about-impact-card h3 {
+  margin-bottom: 0.65rem;
+  font-size: 1.25rem;
+}
+
+.about-impact-card p {
+  margin: 0 auto;
+  max-width: 34ch;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .about-impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-impact-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 0.75rem);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-impact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-impact-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-self: stretch;
+  }
 }
 
 @media (min-width: 992px) {

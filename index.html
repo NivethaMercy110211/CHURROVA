@@ -650,7 +650,25 @@
       }
 
       .dip-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      .dip-grid > :last-child:nth-child(odd) {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        max-width: none !important;
+        justify-self: stretch !important;
+      }
+
+      .preparation-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      .preparation-grid > :last-child:nth-child(odd) {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        max-width: none !important;
+        justify-self: stretch !important;
       }
 
       .stat-row {
@@ -734,7 +752,7 @@
           title="Toggle RTL/LTR">
           <span data-rtl-label style="font-size:0.72rem;font-weight:700;letter-spacing:0.05em;">RTL</span>
         </button>
-        <a href="signature-flavors.html" class="btn-header-cta">Signature Flavors</a>
+        <a href="locations.html#store-locations" class="btn-header-cta">Find a Shop</a>
         <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
           <span></span><span></span><span></span>
         </button>
@@ -790,12 +808,6 @@
     </div>
     <div class="drawer-cta" style="display:flex;flex-direction:column;gap:0.6rem;">
       <a href="signature-flavors.html" class="btn btn-secondary" style="width:100%;justify-content:center;">Signature Flavors</a>
-      <a href="menu.html" class="btn btn-primary">Explore Our Menu
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </a>
     </div>
   </nav>
 

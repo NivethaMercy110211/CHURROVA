@@ -82,6 +82,24 @@
       white-space: nowrap;
     }
 
+    .filled-section > .container > .section-label,
+    .filled-section > .container > .section-title,
+    .filled-section > .container > .section-intro {
+      text-align: center;
+    }
+
+    .filled-section > .container > .section-label {
+      display: flex;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .filled-section > .container > .section-intro {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .filled-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -591,11 +609,19 @@
 
     @media(max-width:600px) {
       .mood-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: minmax(0, 1fr) !important;
       }
 
       .sharing-tier {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      .mood-grid > :last-child:nth-child(odd),
+      .sharing-tier > :last-child:nth-child(odd) {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        max-width: none !important;
+        justify-self: stretch !important;
       }
 
       .sauce-grid {
@@ -651,7 +677,7 @@
             </svg></span></button>
         <button class="icon-btn" data-action="toggle-rtl" aria-label="Toggle RTL"><span data-rtl-label
             style="font-size:0.72rem;font-weight:700;">RTL</span></button>
-        <a href="signature-flavors.html" class="btn-header-cta">Signature Flavors</a>
+        <a href="locations.html#store-locations" class="btn-header-cta">Find a Shop</a>
         <button class="mobile-toggle" aria-label="Open menu"
           aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
@@ -775,7 +801,7 @@
   <!-- ═══════════════════════════════════════════════════════ -->
   <!-- 02. FILLED WITH HAPPINESS                              -->
   <!-- ═══════════════════════════════════════════════════════ -->
-  <section class="section-py" aria-labelledby="filled-title">
+  <section class="section-py filled-section" aria-labelledby="filled-title">
     <div class="container">
       <span class="section-label">02 — Filled Churros</span>
       <h2 id="filled-title" class="section-title reveal">Filled With Happiness</h2>
