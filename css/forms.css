@@ -273,6 +273,256 @@ select.form-control {
   padding-top: clamp(2.5rem, 4vw, 3.5rem);
 }
 
+.contact-stores-column {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-stores-card {
+  height: auto;
+}
+
+.contact-mini-map {
+  position: relative;
+  display: flex;
+  flex: 1 1 150px;
+  min-height: 150px;
+  overflow: hidden;
+  align-items: flex-end;
+  padding: 1.5rem;
+  color: #fff8ed;
+  background: linear-gradient(145deg, #261d17, #3a2a20);
+  border: 1px solid rgba(230, 164, 97, .35);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  isolation: isolate;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.contact-mini-map:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-mini-map-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image: radial-gradient(rgba(230, 164, 97, .2) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.contact-mini-map-route {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  opacity: .28;
+}
+
+.contact-mini-map-route path {
+  fill: none;
+  stroke: #e6a461;
+  stroke-width: 24;
+  stroke-linecap: round;
+}
+
+.contact-mini-pin {
+  position: absolute;
+  z-index: -1;
+  width: 1rem;
+  height: 1rem;
+  background: #fff8ed;
+  border: 4px solid #c87932;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(200, 121, 50, .2);
+}
+
+.contact-mini-pin-soho {
+  left: 18%;
+  top: 24%;
+}
+
+.contact-mini-pin-covent {
+  left: 49%;
+  top: 42%;
+}
+
+.contact-mini-pin-shoreditch {
+  right: 15%;
+  top: 20%;
+}
+
+.contact-mini-map-copy {
+  display: block;
+  padding: .75rem 5.5rem .75rem 0;
+}
+
+.contact-mini-map-copy .section-label {
+  color: #e6a461;
+}
+
+.contact-mini-map-copy strong,
+.contact-mini-map-copy small {
+  display: block;
+}
+
+.contact-mini-map-copy strong {
+  color: #fff8ed;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.contact-mini-map-copy small {
+  margin-top: .25rem;
+  color: #d6c6b7;
+  font-size: .72rem;
+}
+
+.contact-mini-map-action {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 2.2rem;
+  color: #e6a461;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+/* ── Contact Location Map ───────────────────────────────── */
+.contact-map-section {
+  background: var(--bg);
+}
+
+.contact-map-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-map-heading h2 {
+  margin: 0;
+}
+
+.contact-map-heading p {
+  max-width: 46ch;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.contact-map-card {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  border: 1px solid rgba(230, 164, 97, .28);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, #261d17, #3a2a20);
+  box-shadow: var(--shadow-lg);
+  isolation: isolate;
+}
+
+.contact-map-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(rgba(230, 164, 97, .2) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.contact-map-route {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: .3;
+}
+
+.contact-map-route path {
+  fill: none;
+  stroke: #e6a461;
+  stroke-width: 34;
+  stroke-linecap: round;
+}
+
+.contact-map-pin {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  min-width: 210px;
+  padding: .8rem 1rem;
+  color: #fff8ed;
+  background: rgba(52, 39, 31, .96);
+  border: 1px solid rgba(230, 164, 97, .48);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .28);
+  transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.contact-map-pin:hover {
+  transform: translateY(-4px);
+  border-color: #e6a461;
+  background: #443126;
+}
+
+.contact-map-pin-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #38251c;
+  background: #e6a461;
+  border-radius: 50%;
+}
+
+.contact-map-pin-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-map-pin strong,
+.contact-map-pin small {
+  display: block;
+}
+
+.contact-map-pin strong {
+  color: #fff8ed;
+  font-size: .88rem;
+}
+
+.contact-map-pin small {
+  margin-top: .15rem;
+  color: #d6c6b7;
+  font-size: .72rem;
+}
+
+.contact-map-pin-soho {
+  left: 8%;
+  top: 24%;
+}
+
+.contact-map-pin-covent {
+  left: 39%;
+  top: 56%;
+}
+
+.contact-map-pin-shoreditch {
+  right: 7%;
+  top: 20%;
+}
+
 @media (max-width: 991px) {
   .contact-form-section .row {
     grid-template-columns: minmax(0, 1fr);
@@ -280,6 +530,36 @@ select.form-control {
 
   .contact-form-section .row > [class*="col-"] {
     grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .contact-map-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-mini-map {
+    flex-basis: auto;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-map-card {
+    display: grid;
+    gap: 1rem;
+    min-height: 0;
+    padding: 1.25rem;
+  }
+
+  .contact-map-route {
+    display: none;
+  }
+
+  .contact-map-pin {
+    position: static;
+    min-width: 0;
     width: 100%;
   }
 }

@@ -220,6 +220,21 @@
   max-width: 14ch;
 }
 
+@media (min-width: 601px) {
+  .hero-split-actions {
+    align-items: stretch;
+    flex-wrap: nowrap;
+  }
+
+  .hero-split-actions .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 3.75rem;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 /* ── Page Hero (internal pages) ──────────────────────────── */
 .page-hero {
   position: relative;

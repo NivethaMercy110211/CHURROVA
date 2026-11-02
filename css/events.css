@@ -608,7 +608,26 @@
   }
 
   .packages-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .packages-grid > .package-card,
+  .packages-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    justify-self: stretch;
+  }
+
+  .package-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .package-feature > span:last-child {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .booking-steps {
