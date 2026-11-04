@@ -550,7 +550,7 @@
     flex-direction: row !important;
     align-items: center !important;
     text-align: left !important;
-    padding: 0.5rem 0.75rem !important;
+    padding: 0.5rem 3.25rem 0.5rem 0.75rem !important;
     gap: 0.85rem !important;
     width: 100% !important;
     border-radius: var(--radius-md) !important;
